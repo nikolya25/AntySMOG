@@ -3,6 +3,7 @@ function init() {
 }
 
 function onDeviceReady() {
+	document.getElementById('mapshowbutton').style.display = "none";
 	var div = document.getElementById("map");
 	var map = plugin.google.maps.Map.getMap(div , {
 		'mapType': plugin.google.maps.MapTypeId.ROADMAP,
