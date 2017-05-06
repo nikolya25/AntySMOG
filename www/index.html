@@ -13,7 +13,32 @@
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>	
 	</head>
 	<body onload="init()">
+	<!-- Strona główna -->
 		<div data-role="page" id="pageone">
+		  <div data-role="header" data-position="fixed">
+		  	<a href="#myPanel" class="ui-btn ui-btn-inline">Menu</a>
+			<h1>AntySMOG</h1>
+		  </div>
+		  <div data-role="main" class="ui-content">
+			<div data-role="panel" id="myPanel" data-display="overlay">
+
+			  <h2>Menu</h2>
+				<a href="#pageone" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Strona główna</a>
+				<a href="#gps" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Lokalizacja stacji</a>
+				<a href="#wynikipomiarowe" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Wyniki pomiarowe</a>
+			  	<a href="#powiadomienia" data-rel="close" class="ui-btn ui-btn-inline">Powiadomienia</a>
+			</div>
+			<p>
+				Tu będą wskazania jakości powietrza dla krakowa
+			</p>
+			
+		  </div>
+		  <div data-role="footer" data-position="fixed">
+			<h1>AntySMOG Ltd.</h1>
+		  </div> 
+		</div>
+		<!-- Strona z lokalizacją gps i mapami google -->
+		<div data-role="page" id="gps">
 			<div data-role="header">
 				<h1>AntySMOG</h1>
 			</div>
@@ -22,6 +47,17 @@
 					<input type="button" onclick="showMap()" value="Show Map" />
 				</div>
 				<iframe id="map" style="width:100%;height:300px;" alt="Google map"></iframe>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<h1>AntySMOG Ltd.</h1>
+			</div> 
+		</div> 
+		<!-- Strona z powiadomieniami  i wysyłaniem sms -->
+		<div data-role="page" id="powiadomienia">
+			<div data-role="header">
+				<h1>AntySMOG</h1>
+			</div>
+			<div data-role="main" class="ui-content">
 				<form id="sending">
 					<input id="numberTxt" placeholder="Enter mobile number" value="" type="tel" />
 					<textarea id="messageTxt" placeholder="Enter message"></textarea>
