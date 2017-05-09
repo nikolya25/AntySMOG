@@ -1,7 +1,3 @@
-$.mobile.allowCrossDomainPages = true;
-$.support.cors = true;
-$.mobile.phonegapNavigationEnabled = true
-
 $.ajax({
 	method: "GET",
 	//url: "http://api.gios.gov.pl/pjp-api/rest/data/getData/2745",
