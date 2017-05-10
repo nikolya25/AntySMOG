@@ -121,9 +121,11 @@
 <!-- Podstrony dla poszczegulnych stacji pomiarowych -->
 <!-- =============================================================== -->
 
+			<!-- 1 stacja pomiarowa -->
+
 		<div data-role="page" id="station1">
 			<div data-role="header" data-position="fixed">
-				<h1 id="station1Name">AntySMOG</h1>
+				<h1 id="station1NameH">AntySMOG</h1>
 			</div>
 			<div data-role="main" class="ui-content">
 				<h2>Pył zawieszony PM10:</h2>
@@ -137,6 +139,37 @@
 			<div data-role="footer" data-position="fixed">
 				<h1>AntySMOG Ltd.</h1>
 			</div> 
-		</div>  
+		</div> 
+
+			<!-- 2 stacja pomiarowa -->
+
+		<div data-role="page" id="station2">
+			<div data-role="header" data-position="fixed">
+				<h1 id="station2NameH">AntySMOG</h1>
+			</div>
+			<div data-role="main" class="ui-content">
+				<h2>Pył zawieszony PM10:</h2>
+				<ul data-role="listview">
+			      <li><a href="#">Wartość pomiaru: <strong id="station2PM10"></strong></a></li>
+			      <li><a href="#">Data pomiaru: <strong id="station2PM10Date"></strong></a></li>
+			      <li><a href="#">Norma: <strong id="station2PM10Norm"></strong>%</a></li>
+			      <li><a href="#">Stan powietrza: <strong id="station2PM10Stan"></strong></a></li>
+			    </ul>
+			    <h2>Dwutlenek azotu NO2:</h2>
+				<ul data-role="listview">
+			      <li><a href="#">Wartość pomiaru: <strong id="station2NO2"></strong></a></li>
+			      <li><a href="#">Data pomiaru: <strong id="station2NO2Date"></strong></a></li>
+			      <li><a href="#">Norma: <strong id="station2NO2Norm"></strong>%</a></li>
+			      <li><a href="#">Stan powietrza: <strong id="station2NO2Stan">-</strong></a></li>
+			    </ul>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<h1>AntySMOG Ltd.</h1>
+			</div> 
+		</div> 
+
+
+
+		 
 	</body>
 </html>

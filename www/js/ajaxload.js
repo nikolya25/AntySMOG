@@ -8,6 +8,7 @@ $.ajax({
     for (var x=0; x<162; x++) {
     	if (data[x].id == 10123) {
 	    	document.getElementById('station1Name').innerHTML = data[x].stationName;
+	    	document.getElementById('station1NameH').innerHTML = data[x].stationName;
     		document.getElementById('station1Adress').innerHTML = data[x].addressStreet;
 			$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/"+data[x].id, function( stan1 ) {
 			  document.getElementById('station1Stan').innerHTML = stan1.stIndexLevel.indexLevelName;
@@ -15,6 +16,7 @@ $.ajax({
 		}
 		if (data[x].id == 10121) {
 	    	document.getElementById('station2Name').innerHTML = data[x].stationName;
+	    	document.getElementById('station2NameH').innerHTML = data[x].stationName;
     		document.getElementById('station2Adress').innerHTML = data[x].addressStreet;
 			$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/"+data[x].id, function( stan2 ) {
 			  document.getElementById('station2Stan').innerHTML = stan2.stIndexLevel.indexLevelName;
@@ -89,6 +91,41 @@ function station1dane(){
 	});
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/10123", function( stan1PM10 ) {
 			  document.getElementById('station1PM10Stan').innerHTML = stan1PM10.pm10IndexLevel.indexLevelName;
+			})
+}
+
+
+function station2dane(){
+	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/data/getData/16377", function( dane1 ) {
+			for (var x = 0; x < 24; x++) {
+			
+			    if (dane1.values[x].value != null) {
+			    	document.getElementById('station1PM10').innerHTML = dane1.values[x].value;
+			    	document.getElementById('station1PM10Date').innerHTML = dane1.values[x].date;
+			    	normPM10Now=(dane1.values[x].value / normaPM10)*100;
+			    	document.getElementById('station1PM10Norm').innerHTML = normPM10Now
+			    	break;
+			    }
+			}
+			
+	});
+	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/data/getData/16516", function( dane1 ) {
+			for (var x = 0; x < 24; x++) {
+			
+			    if (dane1.values[x].value != null) {
+			    	document.getElementById('station2NO2').innerHTML = dane1.values[x].value;
+			    	document.getElementById('station2NO2Date').innerHTML = dane1.values[x].date;
+			    	norm2NO2Now=(dane1.values[x].value / normaPM10)*100;
+			    	document.getElementById('station2NO2Norm').innerHTML = norm2NO2Now
+			    	break;
+			    }
+			}
+			
+	});
+	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/10121", function( stan ) {
+			  document.getElementById('station2PM10Stan').innerHTML = stan.pm10IndexLevel.indexLevelName;
+			  document.getElementById('station2NO2Stan').innerHTML = stan.no2IndexLevel.indexLevelName;
+
 			})
 }
 
