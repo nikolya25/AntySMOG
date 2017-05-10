@@ -73,7 +73,7 @@ $.ajax({
 
 });
 
-//function station1dane(){
+function station1dane(){
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/data/getData/16786", function( dane1 ) {
 			for (var x = 0; x < 24; x++) {
 			
@@ -85,7 +85,11 @@ $.ajax({
 			}
 			
 	});
-//}
+	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/10123", function( stan1PM10 ) {
+			  document.getElementById('station1PM10Stan').innerHTML = stan1PM10.pm10IndexLevel.indexLevelName;
+			})
+}
+
 
 
 
