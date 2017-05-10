@@ -43,18 +43,19 @@ $.ajax({
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/"+data[125].id, function( stan7 ) {
 	  document.getElementById('station7Stan').innerHTML = stan7.stIndexLevel.indexLevelName;
 	});
-    document.getElementById('station8Name').innerHTML = data[142].stationName;
-    document.getElementById('station8Adress').innerHTML = data[142].addressStreet;
-	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/"+data[142].id, function( stan8 ) {
+    document.getElementById('station8Name').innerHTML = data[143].stationName;
+    document.getElementById('station8Adress').innerHTML = data[143].addressStreet;
+	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/"+data[143].id, function( stan8 ) {
 	  document.getElementById('station8Stan').innerHTML = stan8.stIndexLevel.indexLevelName;
 	});
-    document.getElementById('station9Name').innerHTML = data[160].stationName;
-    document.getElementById('station9Adress').innerHTML = data[160].addressStreet;
-	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/"+data[160].id, function( stan9 ) {
+    document.getElementById('station9Name').innerHTML = data[161].stationName;
+    document.getElementById('station9Adress').innerHTML = data[161].addressStreet;
+	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/"+data[161].id, function( stan9 ) {
 	  document.getElementById('station9Stan').innerHTML = stan9.stIndexLevel.indexLevelName;
 	});    
 	console.log(data);
 });
+
 
 
 
