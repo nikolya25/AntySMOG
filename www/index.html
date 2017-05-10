@@ -42,7 +42,7 @@
 					<p id="station2Adress">Adres:</p>
 					<p>Stan jakości powietrza: <strong  id="station2Stan"></strong></p>
 				</a>
-				<a href="" id="station3Btn" class="ui-btn ui-btn-inline">
+				<a href="#station3" id="station3Btn" onclick="station3dane()" class="ui-btn ui-btn-inline">
 					<p id="station3Name">Nazwa stacji:</p>
 					<p id="station3Adress">Adres:</p>
 					<p>Stan jakości powietrza: <strong  id="station3Stan"></strong></p>
@@ -153,7 +153,7 @@
 			      <li><a href="#">Wartość pomiaru: <strong id="station2PM10"></strong></a></li>
 			      <li><a href="#">Data pomiaru: <strong id="station2PM10Date"></strong></a></li>
 			      <li><a href="#">Norma: <strong id="station2PM10Norm"></strong>%</a></li>
-			      <li><a href="#">Stan powietrza: <strong id="station2PM10Stan"></strong></a></li>
+			      <li><a href="#">Stan powietrza: <strong id="station2PM10Stan">-</strong></a></li>
 			    </ul>
 			    <h2>Dwutlenek azotu NO2:</h2>
 				<ul data-role="listview">
@@ -168,6 +168,55 @@
 			</div> 
 		</div> 
 
+
+				<!-- 3 stacja pomiarowa -->
+
+		<div data-role="page" id="station3">
+			<div data-role="header" data-position="fixed">
+				<h1 id="station3NameH">AntySMOG</h1>
+			</div>
+			<div data-role="main" class="ui-content">
+				<h2>Pył zawieszony PM10:</h2>
+				<ul data-role="listview">
+			      <li><a href="#">Wartość pomiaru: <strong id="station3PM10">-</strong></a></li>
+			      <li><a href="#">Data pomiaru: <strong id="station3PM10Date">-</strong></a></li>
+			      <li><a href="#">Norma: <strong id="station3PM10Norm">-</strong>%</a></li>
+			      <li><a href="#">Stan powietrza: <strong id="station3PM10Stan">-</strong></a></li>
+			    </ul>
+			    <h2>Dwutlenek azotu NO2:</h2>
+				<ul data-role="listview">
+			      <li><a href="#">Wartość pomiaru: <strong id="station3NO2">-</strong></a></li>
+			      <li><a href="#">Data pomiaru: <strong id="station3NO2Date">-</strong></a></li>
+			      <li><a href="#">Norma: <strong id="station3NO2Norm">-</strong>%</a></li>
+			      <li><a href="#">Stan powietrza: <strong id="station3NO2Stan">-</strong></a></li>
+			    </ul>
+			    <h2>Tlenek węgla CO:</h2>
+				<ul data-role="listview">
+			      <li><a href="#">Wartość pomiaru: <strong id="station3CO">-</strong></a></li>
+			      <li><a href="#">Data pomiaru: <strong id="station3CODate">-</strong></a></li>
+			      <li><a href="#">Norma: <strong id="station3CONorm">-</strong>%</a></li>
+			      <li><a href="#">Stan powietrza: <strong id="station3COStan">-</strong></a></li>
+			    </ul>
+			    <h2>Benzen C6H6:</h2>
+				<ul data-role="listview">
+			      <li><a href="#">Wartość pomiaru: <strong id="station3Benzen">-</strong></a></li>
+			      <li><a href="#">Data pomiaru: <strong id="station3BenzenDate">-</strong></a></li>
+			      <li><a href="#">Norma: <strong id="station3BenzenNorm">-</strong>%</a></li>
+			      <li><a href="#">Stan powietrza: <strong id="station3BenzenStan">-</strong></a></li>
+			    </ul>
+			    <h2>pył zawieszony PM2.5:</h2>
+				<ul data-role="listview">
+			      <li><a href="#">Wartość pomiaru: <strong id="station3PM25">-</strong></a></li>
+			      <li><a href="#">Data pomiaru: <strong id="station3PM25Date">-</strong></a></li>
+			      <li><a href="#">Norma: <strong id="station3PM25Norm">-</strong>%</a></li>
+			      <li><a href="#">Stan powietrza: <strong id="station3PM25Stan">-</strong></a></li>
+			    </ul>
+
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<h1>AntySMOG Ltd.</h1>
+			</div> 
+		</div>
 
 
 		 
