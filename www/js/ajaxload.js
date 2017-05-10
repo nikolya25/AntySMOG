@@ -7,6 +7,9 @@ $.ajax({
 
     document.getElementById('station1Name').innerHTML = data[20].stationName;
     document.getElementById('station1Adress').innerHTML = data[20].addressStreet;
+    $.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/10123", function( stan1 ) {
+	  document.getElementById('station1Stan').innerHTML = stan1.stIndexLevel.indexLevelName;
+	});
     document.getElementById('station2Name').innerHTML = data[22].stationName;
     document.getElementById('station2Adress').innerHTML = data[22].addressStreet;
     document.getElementById('station3Name').innerHTML = data[71].stationName;
