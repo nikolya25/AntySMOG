@@ -75,8 +75,16 @@ $.ajax({
 
 //function station1dane(){
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/data/getData/16786", function( dane1 ) {
-			  document.getElementById('station1PM10').innerHTML = dane1.values[3].value;
-			});
+			var x =0;
+			do {
+			    if (dane1.values[x].value != null) {
+			    	document.getElementById('station1PM10').innerHTML = dane1.values[x].value;
+			    	document.getElementById('station1PM10Date').innerHTML = dane1.values[x].date;
+			    }
+			    x++;
+			} while (dane1.values[x].value == null)
+			
+	});
 //}
 
 
