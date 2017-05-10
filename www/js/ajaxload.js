@@ -1,4 +1,5 @@
 var normaPM10 = 50;
+var normaNO2 = 200;
 $.ajax({
 	method: "GET",
 	url: "http://api.gios.gov.pl/pjp-api/rest/station/findAll",
@@ -100,10 +101,10 @@ function station2dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station1PM10').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station1PM10Date').innerHTML = dane1.values[x].date;
+			    	document.getElementById('station2PM10').innerHTML = dane1.values[x].value;
+			    	document.getElementById('station2PM10Date').innerHTML = dane1.values[x].date;
 			    	normPM10Now=(dane1.values[x].value / normaPM10)*100;
-			    	document.getElementById('station1PM10Norm').innerHTML = normPM10Now
+			    	document.getElementById('station2PM10Norm').innerHTML = normPM10Now
 			    	break;
 			    }
 			}
@@ -115,7 +116,7 @@ function station2dane(){
 			    if (dane1.values[x].value != null) {
 			    	document.getElementById('station2NO2').innerHTML = dane1.values[x].value;
 			    	document.getElementById('station2NO2Date').innerHTML = dane1.values[x].date;
-			    	norm2NO2Now=(dane1.values[x].value / normaPM10)*100;
+			    	norm2NO2Now=(dane1.values[x].value / normaNO2)*100;
 			    	document.getElementById('station2NO2Norm').innerHTML = norm2NO2Now
 			    	break;
 			    }
