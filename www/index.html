@@ -15,7 +15,8 @@
 	</head>
 	<body onload="init()">
 	
-		<!-- Strona główna -->
+		<!-- Strona główna na której wyświetlana jest lista ze stacjami pomiarowymi na terenie aglomeracji krakowskiej -->
+		
 		<div data-role="page" id="pageone">
 			<div data-role="panel" id="myPanel" data-display="overlay">
 				<h2>Menu</h2>
@@ -31,7 +32,7 @@
 				<h1>Lista stacji pomiarowych</h1>
 			</div>
 			<div data-role="main" class="ui-content">
-				<a href="" id="station1Btn" class="ui-btn ui-btn-inline">
+				<a href="#station1" id="station1Btn" class="ui-btn ui-btn-inline">
 					<p id="station1Name">Nazwa stacji:</p>
 					<p id="station1Adress">Adres:</p>
 					<p>Stan jakości powietrza: <strong  id="station1Stan"></strong></p>
@@ -84,6 +85,7 @@
 		</div>
 		
 		<!-- Strona z lokalizacją gps i mapami google -->
+		
 		<div data-role="page" id="gps">
 			<div data-role="header" data-position="fixed">
 				<h1>AntySMOG</h1>
@@ -98,6 +100,7 @@
 		</div> 
 		
 		<!-- Strona z powiadomieniami  i wysyłaniem sms -->
+		
 		<div data-role="page" id="powiadomienia">
 			<div data-role="header" data-position="fixed">
 				<h1>AntySMOG</h1>
@@ -112,6 +115,26 @@
 			<div data-role="footer" data-position="fixed">
 				<h1>AntySMOG Ltd.</h1>
 			</div> 
-		</div> 
+		</div>
+
+<!-- =============================================================== -->
+<!-- Podstrony dla poszczegulnych stacji pomiarowych -->
+<!-- =============================================================== -->
+
+		<div data-role="page" id="station1">
+			<div data-role="header" data-position="fixed">
+				<h1 id="station1Name">AntySMOG</h1>
+			</div>
+			<div data-role="main" class="ui-content">
+				<ul data-role="listview">
+			      <li><a href="#">List Item</a></li>
+			      <li><a href="#">List Item</a></li>
+			      <li><a href="#">List Item</a></li>
+			    </ul>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<h1>AntySMOG Ltd.</h1>
+			</div> 
+		</div>  
 	</body>
 </html>
