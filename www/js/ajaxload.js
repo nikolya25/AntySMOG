@@ -5,6 +5,7 @@ var normaBenzen = 5;
 var normaPM25 = 25;
 var normaSO2 = 125;
 var normaO3 = 120;
+var station1NameH, station2NameH, station3NameH, station4NameH, station5NameH, station6NameH, station7NameH, station8NameH, station9NameH, 
 $.ajax({
 	method: "GET",
 	url: "http://api.gios.gov.pl/pjp-api/rest/station/findAll",
@@ -14,6 +15,7 @@ $.ajax({
     for (var x=0; x<170; x++) {
     	if (data[x].id == 10123) {
 	    	document.getElementById('station1Name').innerHTML = data[x].stationName;
+	    	station1NameH = data[x].stationName;
     		document.getElementById('station1Adress').innerHTML = data[x].addressStreet;
 			$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/"+data[x].id, function( stan1 ) {
 			  document.getElementById('station1Stan').innerHTML = stan1.stIndexLevel.indexLevelName;
@@ -21,6 +23,7 @@ $.ajax({
 		}
 		if (data[x].id == 10121) {
 	    	document.getElementById('station2Name').innerHTML = data[x].stationName;
+	    	station2NameH = data[x].stationName;
     		document.getElementById('station2Adress').innerHTML = data[x].addressStreet;
 			$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/"+data[x].id, function( stan2 ) {
 			  document.getElementById('station2Stan').innerHTML = stan2.stIndexLevel.indexLevelName;
@@ -28,6 +31,7 @@ $.ajax({
 		}
 		if (data[x].id == 400) {
 	    	document.getElementById('station3Name').innerHTML = data[x].stationName;
+	    	station3NameH = data[x].stationName;
     		document.getElementById('station3Adress').innerHTML = data[x].addressStreet;
 			$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/"+data[x].id, function( stan3 ) {
 			  document.getElementById('station3Stan').innerHTML = stan3.stIndexLevel.indexLevelName;
@@ -35,6 +39,7 @@ $.ajax({
 		}
 		if (data[x].id == 402) {
 	    	document.getElementById('station4Name').innerHTML = data[x].stationName;
+	    	station4NameH = data[x].stationName;
     		document.getElementById('station4Adress').innerHTML = data[x].addressStreet;
 			$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/"+data[x].id, function( stan4 ) {
 			  document.getElementById('station4Stan').innerHTML = stan4.stIndexLevel.indexLevelName;
@@ -42,6 +47,7 @@ $.ajax({
 		}
 		if (data[x].id == 10447) {
 	    	document.getElementById('station5Name').innerHTML = data[x].stationName;
+	    	station5NameH = data[x].stationName;
     		document.getElementById('station5Adress').innerHTML = data[x].addressStreet;
 			$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/"+data[x].id, function( stan5 ) {
 			  document.getElementById('station5Stan').innerHTML = stan5.stIndexLevel.indexLevelName;
@@ -49,6 +55,7 @@ $.ajax({
 		}
 		if (data[x].id == 10119) {
 	    	document.getElementById('station6Name').innerHTML = data[x].stationName;
+	    	station6NameH = data[x].stationName;
     		document.getElementById('station6Adress').innerHTML = data[x].addressStreet;
 			$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/"+data[x].id, function( stan6 ) {
 			  document.getElementById('station6Stan').innerHTML = stan6.stIndexLevel.indexLevelName;
@@ -56,6 +63,7 @@ $.ajax({
 		}
 		if (data[x].id == 437) {
 	    	document.getElementById('station7Name').innerHTML = data[x].stationName;
+	    	station7NameH = data[x].stationName;
     		document.getElementById('station7Adress').innerHTML = data[x].addressStreet;
 			$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/"+data[x].id, function( stan7 ) {
 			  document.getElementById('station7Stan').innerHTML = stan7.stIndexLevel.indexLevelName;
@@ -63,6 +71,7 @@ $.ajax({
 		}
 		if (data[x].id == 401) {
 	    	document.getElementById('station8Name').innerHTML = data[x].stationName;
+	    	station8NameH = data[x].stationName;
     		document.getElementById('station8Adress').innerHTML = data[x].addressStreet;
 			$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/"+data[x].id, function( stan8 ) {
 			  document.getElementById('station8Stan').innerHTML = stan8.stIndexLevel.indexLevelName;
@@ -70,6 +79,7 @@ $.ajax({
 		}
 		if (data[x].id == 10435) {
 	    	document.getElementById('station9Name').innerHTML = data[x].stationName;
+	    	station9NameH = data[x].stationName;
     		document.getElementById('station9Adress').innerHTML = data[x].addressStreet;
 			$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/"+data[x].id, function( stan9 ) {
 			  document.getElementById('station9Stan').innerHTML = stan9.stIndexLevel.indexLevelName;
@@ -95,9 +105,11 @@ function station1dane(){
 			}
 			
 	});
+
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/10123", function( stan1PM10 ) {
 			  document.getElementById('stationPM10Stan').innerHTML = stan1PM10.pm10IndexLevel.indexLevelName;
 			})
+	document.getElementById('stationNameH').innerHTML = station1NameH;
 }
 
 // ładowanie danych ze stacji 2
@@ -134,6 +146,7 @@ function station2dane(){
 			  document.getElementById('stationNO2Stan').innerHTML = stan.no2IndexLevel.indexLevelName;
 
 			})
+	document.getElementById('stationNameH').innerHTML = station2NameH;
 }
 
 // ładowanie danych ze stacji 3
@@ -217,6 +230,7 @@ function station3dane(){
 			  document.getElementById('stationPM25Stan').innerHTML = stan.pm25IndexLevel.indexLevelName;
 
 			})
+	document.getElementById('stationNameH').innerHTML = station3NameH;
 }
 
 // ładowanie danych ze stacji 4
@@ -315,6 +329,7 @@ function station4dane(){
 			  document.getElementById('stationSO2Stan').innerHTML = stan.so2IndexLevel.indexLevelName;
 
 			})
+	document.getElementById('stationNameH').innerHTML = station4NameH;
 }
 
 // ładowanie danych ze stacji 5
@@ -336,6 +351,7 @@ function station5dane(){
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/10447", function( stan1PM10 ) {
 			  document.getElementById('stationPM10Stan').innerHTML = stan1PM10.pm10IndexLevel.indexLevelName;
 			})
+	document.getElementById('stationNameH').innerHTML = station5NameH;
 }
 
 // ładowanie danych ze stacji 6
@@ -372,6 +388,7 @@ function station6dane(){
 			  document.getElementById('stationNO2Stan').innerHTML = stan.no2IndexLevel.indexLevelName;
 
 			})
+	document.getElementById('stationNameH').innerHTML = station6NameH;
 }
 
 // ładowanie danych ze stacji 7
@@ -425,6 +442,7 @@ function station7dane(){
 			  document.getElementById('stationSO2Stan').innerHTML = stan.so2IndexLevel.indexLevelName;
 
 			})
+	document.getElementById('stationNameH').innerHTML = station7NameH;
 }
 
 // ładowanie danych ze stacji 8
@@ -508,6 +526,7 @@ function station8dane(){
 			  document.getElementById('stationSO2Stan').innerHTML = stan.so2IndexLevel.indexLevelName;
 
 			})
+	document.getElementById('stationNameH').innerHTML = station8NameH;
 }
 
 // ładowanie danych ze stacji 9
@@ -529,4 +548,5 @@ function station9dane(){
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/10435", function( stan1PM10 ) {
 			  document.getElementById('stationPM10Stan').innerHTML = stan1PM10.pm10IndexLevel.indexLevelName;
 			})
+	document.getElementById('stationNameH').innerHTML = station9NameH;
 }
