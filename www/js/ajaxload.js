@@ -510,8 +510,9 @@ function mpkFree(){
 					suma2 = suma2 + dane1.values[x + i].value;
 				}
 				srednia2 = suma2 / 16;
+				break;
 			}
-			break;
+			
 		}
 		document.getElementById('data1').innerHTML = dane1.values[17].date.toString();
 		document.getElementById('data2').innerHTML = wczoraj23.toString();
