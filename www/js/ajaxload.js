@@ -497,6 +497,8 @@ function mpkFree(){
 		var wczoraj23String=wczoraj23.toString();
 		var suma1 = 0;
 		var srednia1 = 0;
+		var suma2 = 0;
+		var srednia2 = 0;
 
 
 		for (var x = 0; x < 58; x++) {
