@@ -3,15 +3,15 @@ var normaNO2 = 200;
 var normaCO = 10000;
 var normaBenzen = 5;
 var normaPM25 = 25;
-var normaSO2 = 350;
-var normaO3;
+var normaSO2 = 125;
+var normaO3 = 120;
 $.ajax({
 	method: "GET",
 	url: "http://api.gios.gov.pl/pjp-api/rest/station/findAll",
 	dataType: "json"
 }).done(function (data) {
 
-    for (var x=0; x<=data.length; x++) {
+    for (var x=0; x<(data.length + 1); x++) {
     	if (data[x].id == 10123) {
 	    	document.getElementById('station1Name').innerHTML = data[x].stationName;
 	    	document.getElementById('station1NameH').innerHTML = data[x].stationName;
