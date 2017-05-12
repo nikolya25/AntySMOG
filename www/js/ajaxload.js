@@ -506,11 +506,11 @@ function mpkFree(){
 					suma1 = suma1 + dane1.values[x + i].value;
 				}
 				srednia1 = suma1 / 12;
-				for (var i = 7; i < 24; i++) {
-					suma2 = suma2 + dane1.values[x + i].value;
+				for (var j = 7; j < 24; j++) {
+					suma2 = suma2 + dane1.values[x + j].value;
 				}
 				srednia2 = suma2 / 16;
-				
+
 			}
 			
 		}
