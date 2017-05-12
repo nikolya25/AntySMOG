@@ -23,7 +23,7 @@
 				<ul data-role="listview" id="sortedList">
 					<li><a href="#pageone" class="ui-btn ui-btn-inline">Lista stacji pomiarowych</a></li>
 					<li><a href="#gps" class="ui-btn ui-btn-inline">Lokalizacja stacji</a></li>
-					<li><a href="#wynikipomiarowe" class="ui-btn ui-btn-inline">Darmowa komunikacja miejska</a></li>
+					<li><a href="#mpk" onclick="mpkFree()" class="ui-btn ui-btn-inline">Darmowa komunikacja miejska</a></li>
 					<li><a href="#powiadomienia" data-rel="close" class="ui-btn ui-btn-inline">Powiadomienia</a></li>
 				</ul>
 			</div>
@@ -106,6 +106,21 @@
 					<textarea id="messageTxt" placeholder="Enter message"></textarea>
 					<input type="button" onclick="smsapp.sendSms()" value="Send SMS" />
 				</form>
+			</div>
+			<div data-role="footer" data-position="fixed">
+				<h1>AntySMOG Ltd.</h1>
+			</div> 
+		</div>
+
+		<!-- Strona z informacją o drmowym mpk -->
+		
+		<div data-role="page" id="mpk">
+			<div data-role="header" data-position="fixed">
+				<h1>AntySMOG</h1>
+			</div>
+			<div data-role="main" class="ui-content">
+				<p id="srednia1"></p>
+				<p id="srednia2"></p>
 			</div>
 			<div data-role="footer" data-position="fixed">
 				<h1>AntySMOG Ltd.</h1>

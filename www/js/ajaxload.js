@@ -69,20 +69,20 @@ $.ajax({
 		}
 		//Kraków, ul. Bujaka
 		if (data[x].id == 401) {
-	    	document.getElementById('station8Name').innerHTML = data[x].stationName;
+	    	document.getElementById('station7Name').innerHTML = data[x].stationName;
 	    	station7NameH = data[x].stationName;
-    		document.getElementById('station8Adress').innerHTML = data[x].addressStreet;
+    		document.getElementById('station7Adress').innerHTML = data[x].addressStreet;
 			$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/"+data[x].id, function( stan8 ) {
-			  document.getElementById('station8Stan').innerHTML = stan8.stIndexLevel.indexLevelName;
+			  document.getElementById('station7Stan').innerHTML = stan8.stIndexLevel.indexLevelName;
 			});
 		}
 		//Kraków, ul. Telimeny
 		if (data[x].id == 10435) {
-	    	document.getElementById('station9Name').innerHTML = data[x].stationName;
+	    	document.getElementById('station8Name').innerHTML = data[x].stationName;
 	    	station8NameH = data[x].stationName;
-    		document.getElementById('station9Adress').innerHTML = data[x].addressStreet;
+    		document.getElementById('station8Adress').innerHTML = data[x].addressStreet;
 			$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/"+data[x].id, function( stan9 ) {
-			  document.getElementById('station9Stan').innerHTML = stan9.stIndexLevel.indexLevelName;
+			  document.getElementById('station8Stan').innerHTML = stan9.stIndexLevel.indexLevelName;
 			});
 		}
 	}
@@ -483,4 +483,37 @@ function station8dane(){
 			  document.getElementById('stationPM10Stan').innerHTML = stan1PM10.pm10IndexLevel.indexLevelName;
 			})
 	document.getElementById('stationNameH').innerHTML = station8NameH;
+}
+
+// funkcja do sprawdzania czy jest darmowe mpk
+
+function mpkFree(){
+	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/data/getData/16786", function( dane1 ) {
+		var currentDate = new Date();
+		var wczoraj23 =currentDate.getFullYear() + "-"+ (currentDate.getMonth()+1) + "-"  + (currentDate.getDate() - 1) + " " +"11:00:00";
+		var suma1
+		var srednia1
+
+
+		for (var x = 0; x < 58; x++) {
+			
+			if (dane1.values[x].date == wczoraj23) {
+				for (var i = 0; i < 12; i++) {
+					suma1 = suma1 + dane1.values[x + i].value;
+				}
+				srednia1 = suma1 / 12;
+				for (var i = 7; i < 24; i++) {
+					suma2 = suma2 + dane1.values[x + i].value;
+				}
+				srednia2 = suma2 / 16;
+			}
+			break;
+		}
+
+		document.getElementById('srednia1').innerHTML = srednia1;
+		document.getElementById('srednia2').innerHTML = srednia2;
+			
+	});
+
+
 }
