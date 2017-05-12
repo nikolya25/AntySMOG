@@ -491,8 +491,8 @@ function mpkFree(){
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/data/getData/16786", function( dane1 ) {
 		var currentDate = new Date();
 		var wczoraj23 =currentDate.getFullYear() + "-"+ (currentDate.getMonth()+1) + "-"  + (currentDate.getDate() - 1) + " " +"11:00:00";
-		var suma1
-		var srednia1
+		var suma1 = 0;
+		var srednia1 = 0;
 
 
 		for (var x = 0; x < 58; x++) {
