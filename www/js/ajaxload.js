@@ -502,8 +502,8 @@ function mpkFree(){
 		for (var x = 0; x < 58; x++) {
 			if (dane1.values[x].date.toString() == wczoraj23String) {
 				document.getElementById('data3').innerHTML = dane1.values[x].date;
-				for (var i = 0; i < 12; i++) {
-					suma1 = suma1 + dane1.values[x + i].value;
+				for (var y = 0; y < 12; y++) {
+					suma1 = suma1 + dane1.values[x + y].value;
 				}
 				srednia1 = suma1 / 12;
 				for (var j = 7; j < 24; j++) {
