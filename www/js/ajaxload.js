@@ -11,7 +11,7 @@ $.ajax({
 	dataType: "json"
 }).done(function (data) {
 
-    for (var x=0; x<169; x++) {
+    for (var x=0; x<=data.length; x++) {
     	if (data[x].id == 10123) {
 	    	document.getElementById('station1Name').innerHTML = data[x].stationName;
 	    	document.getElementById('station1NameH').innerHTML = data[x].stationName;
@@ -95,17 +95,17 @@ function station1dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station1PM10').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station1PM10Date').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationPM10').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationPM10Date').innerHTML = dane1.values[x].date;
 			    	normPM10Now=(dane1.values[x].value / normaPM10)*100;
-			    	document.getElementById('station1PM10Norm').innerHTML = normPM10Now
+			    	document.getElementById('stationPM10Norm').innerHTML = normPM10Now
 			    	break;
 			    }
 			}
 			
 	});
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/10123", function( stan1PM10 ) {
-			  document.getElementById('station1PM10Stan').innerHTML = stan1PM10.pm10IndexLevel.indexLevelName;
+			  document.getElementById('stationPM10Stan').innerHTML = stan1PM10.pm10IndexLevel.indexLevelName;
 			})
 }
 
@@ -116,10 +116,10 @@ function station2dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station2PM10').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station2PM10Date').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationPM10').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationPM10Date').innerHTML = dane1.values[x].date;
 			    	normPM10Now=(dane1.values[x].value / normaPM10)*100;
-			    	document.getElementById('station2PM10Norm').innerHTML = normPM10Now
+			    	document.getElementById('stationPM10Norm').innerHTML = normPM10Now
 			    	break;
 			    }
 			}
@@ -129,18 +129,18 @@ function station2dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station2NO2').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station2NO2Date').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationNO2').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationNO2Date').innerHTML = dane1.values[x].date;
 			    	norm2NO2Now=(dane1.values[x].value / normaNO2)*100;
-			    	document.getElementById('station2NO2Norm').innerHTML = norm2NO2Now
+			    	document.getElementById('stationNO2Norm').innerHTML = norm2NO2Now
 			    	break;
 			    }
 			}
 			
 	});
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/10121", function( stan ) {
-			  document.getElementById('station2PM10Stan').innerHTML = stan.pm10IndexLevel.indexLevelName;
-			  document.getElementById('station2NO2Stan').innerHTML = stan.no2IndexLevel.indexLevelName;
+			  document.getElementById('stationPM10Stan').innerHTML = stan.pm10IndexLevel.indexLevelName;
+			  document.getElementById('stationNO2Stan').innerHTML = stan.no2IndexLevel.indexLevelName;
 
 			})
 }
@@ -153,10 +153,10 @@ function station3dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station3PM10').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station3PM10Date').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationPM10').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationPM10Date').innerHTML = dane1.values[x].date;
 			    	normPM10Now=(dane1.values[x].value / normaPM10)*100;
-			    	document.getElementById('station3PM10Norm').innerHTML = normPM10Now
+			    	document.getElementById('stationPM10Norm').innerHTML = normPM10Now
 			    	break;
 			    }
 			}
@@ -167,10 +167,10 @@ function station3dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station3NO2').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station3NO2Date').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationNO2').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationNO2Date').innerHTML = dane1.values[x].date;
 			    	norm3NO2Now=(dane1.values[x].value / normaNO2)*100;
-			    	document.getElementById('station3NO2Norm').innerHTML = norm3NO2Now
+			    	document.getElementById('stationNO2Norm').innerHTML = norm3NO2Now
 			    	break;
 			    }
 			}
@@ -181,10 +181,10 @@ function station3dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station3CO').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station3CODate').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationCO').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationCODate').innerHTML = dane1.values[x].date;
 			    	normCONow=(dane1.values[x].value / normaCO)*100;
-			    	document.getElementById('station3CONorm').innerHTML = normCONow
+			    	document.getElementById('stationCONorm').innerHTML = normCONow
 			    	break;
 			    }
 			}
@@ -195,10 +195,10 @@ function station3dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station3Benzen').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station3BenzenDate').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationBenzen').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationBenzenDate').innerHTML = dane1.values[x].date;
 			    	normBenzenNow=(dane1.values[x].value / normaBenzen)*100;
-			    	document.getElementById('station3BenzenNorm').innerHTML = normBenzenNow
+			    	document.getElementById('stationBenzenNorm').innerHTML = normBenzenNow
 			    	break;
 			    }
 			}
@@ -209,21 +209,21 @@ function station3dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station3PM25').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station3PM25Date').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationPM25').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationPM25Date').innerHTML = dane1.values[x].date;
 			    	normPM25Now=(dane1.values[x].value / normaPM25)*100;
-			    	document.getElementById('station3PM25Norm').innerHTML = normPM25Now
+			    	document.getElementById('stationPM25Norm').innerHTML = normPM25Now
 			    	break;
 			    }
 			}
 			
 	});
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/400", function( stan ) {
-			  document.getElementById('station3PM10Stan').innerHTML = stan.pm10IndexLevel.indexLevelName;
-			  document.getElementById('station3NO2Stan').innerHTML = stan.no2IndexLevel.indexLevelName;
-			  document.getElementById('station3COStan').innerHTML = stan.coIndexLevel.indexLevelName;
-			  document.getElementById('station3BenzenStan').innerHTML = stan.c6h6IndexLevel.indexLevelName;
-			  document.getElementById('station3PM25Stan').innerHTML = stan.pm25IndexLevel.indexLevelName;
+			  document.getElementById('stationPM10Stan').innerHTML = stan.pm10IndexLevel.indexLevelName;
+			  document.getElementById('stationNO2Stan').innerHTML = stan.no2IndexLevel.indexLevelName;
+			  document.getElementById('stationCOStan').innerHTML = stan.coIndexLevel.indexLevelName;
+			  document.getElementById('stationBenzenStan').innerHTML = stan.c6h6IndexLevel.indexLevelName;
+			  document.getElementById('stationPM25Stan').innerHTML = stan.pm25IndexLevel.indexLevelName;
 
 			})
 }
@@ -236,10 +236,10 @@ function station4dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station4PM10').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station4PM10Date').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationPM10').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationPM10Date').innerHTML = dane1.values[x].date;
 			    	normPM10Now=(dane1.values[x].value / normaPM10)*100;
-			    	document.getElementById('station4PM10Norm').innerHTML = normPM10Now
+			    	document.getElementById('stationPM10Norm').innerHTML = normPM10Now
 			    	break;
 			    }
 			}
@@ -250,10 +250,10 @@ function station4dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station4NO2').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station4NO2Date').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationNO2').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationNO2Date').innerHTML = dane1.values[x].date;
 			    	norm3NO2Now=(dane1.values[x].value / normaNO2)*100;
-			    	document.getElementById('station4NO2Norm').innerHTML = norm3NO2Now
+			    	document.getElementById('stationNO2Norm').innerHTML = norm3NO2Now
 			    	break;
 			    }
 			}
@@ -264,10 +264,10 @@ function station4dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station4CO').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station4CODate').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationCO').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationCODate').innerHTML = dane1.values[x].date;
 			    	normCONow=(dane1.values[x].value / normaCO)*100;
-			    	document.getElementById('station4CONorm').innerHTML = normCONow
+			    	document.getElementById('stationCONorm').innerHTML = normCONow
 			    	break;
 			    }
 			}
@@ -278,10 +278,10 @@ function station4dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station4Benzen').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station4BenzenDate').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationBenzen').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationBenzenDate').innerHTML = dane1.values[x].date;
 			    	normBenzenNow=(dane1.values[x].value / normaBenzen)*100;
-			    	document.getElementById('station4BenzenNorm').innerHTML = normBenzenNow
+			    	document.getElementById('stationBenzenNorm').innerHTML = normBenzenNow
 			    	break;
 			    }
 			}
@@ -292,10 +292,10 @@ function station4dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station4PM25').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station4PM25Date').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationPM25').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationPM25Date').innerHTML = dane1.values[x].date;
 			    	normPM25Now=(dane1.values[x].value / normaPM25)*100;
-			    	document.getElementById('station4PM25Norm').innerHTML = normPM25Now
+			    	document.getElementById('stationPM25Norm').innerHTML = normPM25Now
 			    	break;
 			    }
 			}
@@ -306,22 +306,22 @@ function station4dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station4SO2').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station4SO2Date').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationSO2').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationSO2Date').innerHTML = dane1.values[x].date;
 			    	normSO2Now=(dane1.values[x].value / normaSO2)*100;
-			    	document.getElementById('station4SO2Norm').innerHTML = normSO2Now
+			    	document.getElementById('stationSO2Norm').innerHTML = normSO2Now
 			    	break;
 			    }
 			}
 			
 	});
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/402", function( stan ) {
-			  document.getElementById('station4PM10Stan').innerHTML = stan.pm10IndexLevel.indexLevelName;
-			  document.getElementById('station4NO2Stan').innerHTML = stan.no2IndexLevel.indexLevelName;
-			  document.getElementById('station4COStan').innerHTML = stan.coIndexLevel.indexLevelName;
-			  document.getElementById('station4BenzenStan').innerHTML = stan.c6h6IndexLevel.indexLevelName;
-			  document.getElementById('station4PM25Stan').innerHTML = stan.pm25IndexLevel.indexLevelName;
-			  document.getElementById('station4SO2Stan').innerHTML = stan.so2IndexLevel.indexLevelName;
+			  document.getElementById('stationPM10Stan').innerHTML = stan.pm10IndexLevel.indexLevelName;
+			  document.getElementById('stationNO2Stan').innerHTML = stan.no2IndexLevel.indexLevelName;
+			  document.getElementById('stationCOStan').innerHTML = stan.coIndexLevel.indexLevelName;
+			  document.getElementById('stationBenzenStan').innerHTML = stan.c6h6IndexLevel.indexLevelName;
+			  document.getElementById('stationPM25Stan').innerHTML = stan.pm25IndexLevel.indexLevelName;
+			  document.getElementById('stationSO2Stan').innerHTML = stan.so2IndexLevel.indexLevelName;
 
 			})
 }
@@ -333,17 +333,17 @@ function station5dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station5PM10').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station5PM10Date').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationPM10').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationPM10Date').innerHTML = dane1.values[x].date;
 			    	normPM10Now=(dane1.values[x].value / normaPM10)*100;
-			    	document.getElementById('station5PM10Norm').innerHTML = normPM10Now
+			    	document.getElementById('stationPM10Norm').innerHTML = normPM10Now
 			    	break;
 			    }
 			}
 			
 	});
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/10447", function( stan1PM10 ) {
-			  document.getElementById('station5PM10Stan').innerHTML = stan1PM10.pm10IndexLevel.indexLevelName;
+			  document.getElementById('stationPM10Stan').innerHTML = stan1PM10.pm10IndexLevel.indexLevelName;
 			})
 }
 
@@ -354,10 +354,10 @@ function station6dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station6O3').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station6O3Date').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationO3').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationO3Date').innerHTML = dane1.values[x].date;
 			    	normO3Now=(dane1.values[x].value / normaO3)*100;
-			    	document.getElementById('station6O3Norm').innerHTML = normO3Now
+			    	document.getElementById('stationO3Norm').innerHTML = normO3Now
 			    	break;
 			    }
 			}
@@ -367,18 +367,18 @@ function station6dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station6NO2').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station6NO2Date').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationNO2').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationNO2Date').innerHTML = dane1.values[x].date;
 			    	norm2NO2Now=(dane1.values[x].value / normaNO2)*100;
-			    	document.getElementById('station6NO2Norm').innerHTML = norm2NO2Now
+			    	document.getElementById('stationNO2Norm').innerHTML = norm2NO2Now
 			    	break;
 			    }
 			}
 			
 	});
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/10119", function( stan ) {
-			  document.getElementById('station6O3Stan').innerHTML = stan.o3IndexLevel.indexLevelName;
-			  document.getElementById('station6NO2Stan').innerHTML = stan.no2IndexLevel.indexLevelName;
+			  document.getElementById('stationO3Stan').innerHTML = stan.o3IndexLevel.indexLevelName;
+			  document.getElementById('stationNO2Stan').innerHTML = stan.no2IndexLevel.indexLevelName;
 
 			})
 }
@@ -391,10 +391,10 @@ function station7dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station7PM10').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station7PM10Date').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationPM10').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationPM10Date').innerHTML = dane1.values[x].date;
 			    	normPM10Now=(dane1.values[x].value / normaPM10)*100;
-			    	document.getElementById('station7PM10Norm').innerHTML = normPM10Now
+			    	document.getElementById('stationPM10Norm').innerHTML = normPM10Now
 			    	break;
 			    }
 			}
@@ -405,10 +405,10 @@ function station7dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station7NO2').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station7NO2Date').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationNO2').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationNO2Date').innerHTML = dane1.values[x].date;
 			    	norm3NO2Now=(dane1.values[x].value / normaNO2)*100;
-			    	document.getElementById('station7NO2Norm').innerHTML = norm3NO2Now
+			    	document.getElementById('stationNO2Norm').innerHTML = norm3NO2Now
 			    	break;
 			    }
 			}
@@ -419,19 +419,19 @@ function station7dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station7SO2').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station7SO2Date').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationSO2').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationSO2Date').innerHTML = dane1.values[x].date;
 			    	normSO2Now=(dane1.values[x].value / normaSO2)*100;
-			    	document.getElementById('station7SO2Norm').innerHTML = normSO2Now
+			    	document.getElementById('stationSO2Norm').innerHTML = normSO2Now
 			    	break;
 			    }
 			}
 			
 	});
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/437", function( stan ) {
-			  document.getElementById('station7PM10Stan').innerHTML = stan.pm10IndexLevel.indexLevelName;
-			  document.getElementById('station7NO2Stan').innerHTML = stan.no2IndexLevel.indexLevelName;
-			  document.getElementById('station7SO2Stan').innerHTML = stan.so2IndexLevel.indexLevelName;
+			  document.getElementById('stationPM10Stan').innerHTML = stan.pm10IndexLevel.indexLevelName;
+			  document.getElementById('stationNO2Stan').innerHTML = stan.no2IndexLevel.indexLevelName;
+			  document.getElementById('stationSO2Stan').innerHTML = stan.so2IndexLevel.indexLevelName;
 
 			})
 }
@@ -444,10 +444,10 @@ function station8dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station8PM10').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station8PM10Date').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationPM10').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationPM10Date').innerHTML = dane1.values[x].date;
 			    	normPM10Now=(dane1.values[x].value / normaPM10)*100;
-			    	document.getElementById('station8PM10Norm').innerHTML = normPM10Now
+			    	document.getElementById('stationPM10Norm').innerHTML = normPM10Now
 			    	break;
 			    }
 			}
@@ -458,10 +458,10 @@ function station8dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station8NO2').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station8NO2Date').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationNO2').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationNO2Date').innerHTML = dane1.values[x].date;
 			    	norm3NO2Now=(dane1.values[x].value / normaNO2)*100;
-			    	document.getElementById('station8NO2Norm').innerHTML = norm3NO2Now
+			    	document.getElementById('stationNO2Norm').innerHTML = norm3NO2Now
 			    	break;
 			    }
 			}
@@ -472,10 +472,10 @@ function station8dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station8O3').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station8O3Date').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationO3').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationO3Date').innerHTML = dane1.values[x].date;
 			    	normO3Now=(dane1.values[x].value / normaO3)*100;
-			    	document.getElementById('station8O3Norm').innerHTML = normO3Now
+			    	document.getElementById('stationO3Norm').innerHTML = normO3Now
 			    	break;
 			    }
 			}
@@ -486,10 +486,10 @@ function station8dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station8PM25').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station8PM25Date').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationPM25').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationPM25Date').innerHTML = dane1.values[x].date;
 			    	normPM25Now=(dane1.values[x].value / normaPM25)*100;
-			    	document.getElementById('station8PM25Norm').innerHTML = normPM25Now
+			    	document.getElementById('stationPM25Norm').innerHTML = normPM25Now
 			    	break;
 			    }
 			}
@@ -500,21 +500,21 @@ function station8dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station8SO2').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station8SO2Date').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationSO2').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationSO2Date').innerHTML = dane1.values[x].date;
 			    	normSO2Now=(dane1.values[x].value / normaSO2)*100;
-			    	document.getElementById('station8SO2Norm').innerHTML = normSO2Now
+			    	document.getElementById('stationSO2Norm').innerHTML = normSO2Now
 			    	break;
 			    }
 			}
 			
 	});
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/401", function( stan ) {
-			  document.getElementById('station8PM10Stan').innerHTML = stan.pm10IndexLevel.indexLevelName;
-			  document.getElementById('station8NO2Stan').innerHTML = stan.no2IndexLevel.indexLevelName;
-			  document.getElementById('station8O3Stan').innerHTML = stan.coIndexLevel.indexLevelName;
-			  document.getElementById('station8PM25Stan').innerHTML = stan.pm25IndexLevel.indexLevelName;
-			  document.getElementById('station8SO2Stan').innerHTML = stan.so2IndexLevel.indexLevelName;
+			  document.getElementById('stationPM10Stan').innerHTML = stan.pm10IndexLevel.indexLevelName;
+			  document.getElementById('stationNO2Stan').innerHTML = stan.no2IndexLevel.indexLevelName;
+			  document.getElementById('stationO3Stan').innerHTML = stan.coIndexLevel.indexLevelName;
+			  document.getElementById('stationPM25Stan').innerHTML = stan.pm25IndexLevel.indexLevelName;
+			  document.getElementById('stationSO2Stan').innerHTML = stan.so2IndexLevel.indexLevelName;
 
 			})
 }
@@ -526,16 +526,16 @@ function station9dane(){
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
-			    	document.getElementById('station9PM10').innerHTML = dane1.values[x].value;
-			    	document.getElementById('station9PM10Date').innerHTML = dane1.values[x].date;
+			    	document.getElementById('stationPM10').innerHTML = dane1.values[x].value;
+			    	document.getElementById('stationPM10Date').innerHTML = dane1.values[x].date;
 			    	normPM10Now=(dane1.values[x].value / normaPM10)*100;
-			    	document.getElementById('station9PM10Norm').innerHTML = normPM10Now
+			    	document.getElementById('stationPM10Norm').innerHTML = normPM10Now
 			    	break;
 			    }
 			}
 			
 	});
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/10435", function( stan1PM10 ) {
-			  document.getElementById('station9PM10Stan').innerHTML = stan1PM10.pm10IndexLevel.indexLevelName;
+			  document.getElementById('stationPM10Stan').innerHTML = stan1PM10.pm10IndexLevel.indexLevelName;
 			})
 }
