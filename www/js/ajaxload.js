@@ -488,7 +488,7 @@ function station8dane(){
 // funkcja do sprawdzania czy jest darmowe mpk
 
 function mpkFree(){
-	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/data/getData/16786", function( dane1 ) {
+	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/data/getData/16377", function( dane1 ) {
 		var currentDate = new Date();
 		var wczoraj23 =currentDate.getFullYear() + "-"+ (currentDate.getMonth()+1) + "-"  + (currentDate.getDate() - 1) + " " +"11:00:00";
 		var suma1 = 0;
