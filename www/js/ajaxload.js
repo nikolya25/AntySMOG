@@ -5,7 +5,7 @@ var normaBenzen = 5;
 var normaPM25 = 25;
 var normaSO2 = 125;
 var normaO3 = 120;
-var station1NameH, station2NameH, station3NameH, station4NameH, station5NameH, station6NameH, station7NameH, station8NameH, station9NameH;
+var station1NameH, station2NameH, station3NameH, station4NameH, station5NameH, station6NameH, station7NameH, station8NameH;
 $.ajax({
 	method: "GET",
 	url: "http://api.gios.gov.pl/pjp-api/rest/station/findAll",
@@ -13,6 +13,7 @@ $.ajax({
 }).done(function (data) {
 
     for (var x=0; x<170; x++) {
+    	//Kraków, ul. Złoty Róg
     	if (data[x].id == 10123) {
 	    	document.getElementById('station1Name').innerHTML = data[x].stationName;
 	    	station1NameH = data[x].stationName;
@@ -21,6 +22,7 @@ $.ajax({
 			  document.getElementById('station1Stan').innerHTML = stan1.stIndexLevel.indexLevelName;
 			});
 		}
+		//Kraków, ul. Dietla
 		if (data[x].id == 10121) {
 	    	document.getElementById('station2Name').innerHTML = data[x].stationName;
 	    	station2NameH = data[x].stationName;
@@ -29,6 +31,7 @@ $.ajax({
 			  document.getElementById('station2Stan').innerHTML = stan2.stIndexLevel.indexLevelName;
 			});
 		}
+		//Kraków, Aleja Krasińskiego
 		if (data[x].id == 400) {
 	    	document.getElementById('station3Name').innerHTML = data[x].stationName;
 	    	station3NameH = data[x].stationName;
@@ -37,6 +40,7 @@ $.ajax({
 			  document.getElementById('station3Stan').innerHTML = stan3.stIndexLevel.indexLevelName;
 			});
 		}
+		//Kraków, ul. Bulwarowa
 		if (data[x].id == 402) {
 	    	document.getElementById('station4Name').innerHTML = data[x].stationName;
 	    	station4NameH = data[x].stationName;
@@ -45,6 +49,7 @@ $.ajax({
 			  document.getElementById('station4Stan').innerHTML = stan4.stIndexLevel.indexLevelName;
 			});
 		}
+		//Kraków, os. Wadów
 		if (data[x].id == 10447) {
 	    	document.getElementById('station5Name').innerHTML = data[x].stationName;
 	    	station5NameH = data[x].stationName;
@@ -53,7 +58,8 @@ $.ajax({
 			  document.getElementById('station5Stan').innerHTML = stan5.stIndexLevel.indexLevelName;
 			});
 		}
-		if (data[x].id == 10119) {
+		//Kraków, os. Piastów
+		if (data[x].id == 10139) {
 	    	document.getElementById('station6Name').innerHTML = data[x].stationName;
 	    	station6NameH = data[x].stationName;
     		document.getElementById('station6Adress').innerHTML = data[x].addressStreet;
@@ -61,25 +67,19 @@ $.ajax({
 			  document.getElementById('station6Stan').innerHTML = stan6.stIndexLevel.indexLevelName;
 			});
 		}
-		if (data[x].id == 437) {
-	    	document.getElementById('station7Name').innerHTML = data[x].stationName;
-	    	station7NameH = data[x].stationName;
-    		document.getElementById('station7Adress').innerHTML = data[x].addressStreet;
-			$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/"+data[x].id, function( stan7 ) {
-			  document.getElementById('station7Stan').innerHTML = stan7.stIndexLevel.indexLevelName;
-			});
-		}
+		//Kraków, ul. Bujaka
 		if (data[x].id == 401) {
 	    	document.getElementById('station8Name').innerHTML = data[x].stationName;
-	    	station8NameH = data[x].stationName;
+	    	station7NameH = data[x].stationName;
     		document.getElementById('station8Adress').innerHTML = data[x].addressStreet;
 			$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/"+data[x].id, function( stan8 ) {
 			  document.getElementById('station8Stan').innerHTML = stan8.stIndexLevel.indexLevelName;
 			});
 		}
+		//Kraków, ul. Telimeny
 		if (data[x].id == 10435) {
 	    	document.getElementById('station9Name').innerHTML = data[x].stationName;
-	    	station9NameH = data[x].stationName;
+	    	station8NameH = data[x].stationName;
     		document.getElementById('station9Adress').innerHTML = data[x].addressStreet;
 			$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/"+data[x].id, function( stan9 ) {
 			  document.getElementById('station9Stan').innerHTML = stan9.stIndexLevel.indexLevelName;
@@ -89,7 +89,7 @@ $.ajax({
 
 });
 
-// ładowanie danych ze stacji 1
+// ładowanie danych ze stacji 1 Kraków, ul. Złoty Róg
 
 function station1dane(){
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/data/getData/16786", function( dane1 ) {
@@ -112,7 +112,7 @@ function station1dane(){
 	document.getElementById('stationNameH').innerHTML = station1NameH;
 }
 
-// ładowanie danych ze stacji 2
+// ładowanie danych ze stacji 2 Kraków, ul. Dietla
 
 function station2dane(){
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/data/getData/16377", function( dane1 ) {
@@ -149,7 +149,7 @@ function station2dane(){
 	document.getElementById('stationNameH').innerHTML = station2NameH;
 }
 
-// ładowanie danych ze stacji 3
+// ładowanie danych ze stacji 3 Kraków, Aleja Krasińskiego
 
 function station3dane(){
 	//pm10
@@ -233,7 +233,7 @@ function station3dane(){
 	document.getElementById('stationNameH').innerHTML = station3NameH;
 }
 
-// ładowanie danych ze stacji 4
+// ładowanie danych ze stacji 4 Kraków, ul. Bulwarowa
 
 function station4dane(){
 	//pm10
@@ -332,7 +332,7 @@ function station4dane(){
 	document.getElementById('stationNameH').innerHTML = station4NameH;
 }
 
-// ładowanie danych ze stacji 5
+// ładowanie danych ze stacji 5 Kraków, os. Wadów
 
 function station5dane(){
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/data/getData/17309", function( dane1 ) {
@@ -354,48 +354,12 @@ function station5dane(){
 	document.getElementById('stationNameH').innerHTML = station5NameH;
 }
 
-// ładowanie danych ze stacji 6
+
+// ładowanie danych ze stacji 6 Kraków, os. Piastów
 
 function station6dane(){
-	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/data/getData/16488", function( dane1 ) {
-			for (var x = 0; x < 24; x++) {
-			
-			    if (dane1.values[x].value != null) {
-			    	document.getElementById('stationO3').innerHTML = dane1.values[x].value;
-			    	document.getElementById('stationO3Date').innerHTML = dane1.values[x].date;
-			    	normO3Now=(dane1.values[x].value / normaO3)*100;
-			    	document.getElementById('stationO3Norm').innerHTML = normO3Now
-			    	break;
-			    }
-			}
-			
-	});
-	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/data/getData/16486", function( dane1 ) {
-			for (var x = 0; x < 24; x++) {
-			
-			    if (dane1.values[x].value != null) {
-			    	document.getElementById('stationNO2').innerHTML = dane1.values[x].value;
-			    	document.getElementById('stationNO2Date').innerHTML = dane1.values[x].date;
-			    	norm2NO2Now=(dane1.values[x].value / normaNO2)*100;
-			    	document.getElementById('stationNO2Norm').innerHTML = norm2NO2Now
-			    	break;
-			    }
-			}
-			
-	});
-	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/10119", function( stan ) {
-			  document.getElementById('stationO3Stan').innerHTML = stan.o3IndexLevel.indexLevelName;
-			  document.getElementById('stationNO2Stan').innerHTML = stan.no2IndexLevel.indexLevelName;
-
-			})
-	document.getElementById('stationNameH').innerHTML = station6NameH;
-}
-
-// ładowanie danych ze stacji 7
-
-function station7dane(){
 	//pm10
-	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/data/getData/3023", function( dane1 ) {
+	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/data/getData/16784", function( dane1 ) {
 			for (var x = 0; x < 24; x++) {
 			
 			    if (dane1.values[x].value != null) {
@@ -408,46 +372,16 @@ function station7dane(){
 			}
 			
 	});
-	//NO2
-	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/data/getData/3020", function( dane1 ) {
-			for (var x = 0; x < 24; x++) {
-			
-			    if (dane1.values[x].value != null) {
-			    	document.getElementById('stationNO2').innerHTML = dane1.values[x].value;
-			    	document.getElementById('stationNO2Date').innerHTML = dane1.values[x].date;
-			    	norm3NO2Now=(dane1.values[x].value / normaNO2)*100;
-			    	document.getElementById('stationNO2Norm').innerHTML = norm3NO2Now
-			    	break;
-			    }
-			}
-			
-	});
-	//SO2
-	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/data/getData/3026", function( dane1 ) {
-			for (var x = 0; x < 24; x++) {
-			
-			    if (dane1.values[x].value != null) {
-			    	document.getElementById('stationSO2').innerHTML = dane1.values[x].value;
-			    	document.getElementById('stationSO2Date').innerHTML = dane1.values[x].date;
-			    	normSO2Now=(dane1.values[x].value / normaSO2)*100;
-			    	document.getElementById('stationSO2Norm').innerHTML = normSO2Now
-			    	break;
-			    }
-			}
-			
-	});
-	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/437", function( stan ) {
+	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/10139", function( stan ) {
 			  document.getElementById('stationPM10Stan').innerHTML = stan.pm10IndexLevel.indexLevelName;
-			  document.getElementById('stationNO2Stan').innerHTML = stan.no2IndexLevel.indexLevelName;
-			  document.getElementById('stationSO2Stan').innerHTML = stan.so2IndexLevel.indexLevelName;
 
 			})
-	document.getElementById('stationNameH').innerHTML = station7NameH;
+	document.getElementById('stationNameH').innerHTML = station6NameH;
 }
 
-// ładowanie danych ze stacji 8
+// ładowanie danych ze stacji 7 Kraków, ul. Bujaka
 
-function station8dane(){
+function station7dane(){
 	//pm10
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/data/getData/2770", function( dane1 ) {
 			for (var x = 0; x < 24; x++) {
@@ -526,12 +460,12 @@ function station8dane(){
 			  document.getElementById('stationSO2Stan').innerHTML = stan.so2IndexLevel.indexLevelName;
 
 			})
-	document.getElementById('stationNameH').innerHTML = station8NameH;
+	document.getElementById('stationNameH').innerHTML = station7NameH;
 }
 
-// ładowanie danych ze stacji 9
+// ładowanie danych ze stacji 8 Kraków, ul. Telimeny
 
-function station9dane(){
+function station8dane(){
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/data/getData/17243", function( dane1 ) {
 			for (var x = 0; x < 24; x++) {
 			
@@ -548,5 +482,5 @@ function station9dane(){
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/10435", function( stan1PM10 ) {
 			  document.getElementById('stationPM10Stan').innerHTML = stan1PM10.pm10IndexLevel.indexLevelName;
 			})
-	document.getElementById('stationNameH').innerHTML = station9NameH;
+	document.getElementById('stationNameH').innerHTML = station8NameH;
 }

@@ -15,7 +15,7 @@
 	</head>
 	<body onload="init()">
 	
-		<!-- Strona główna na której wyświetlana jest lista ze stacjami pomiarowymi na terenie aglomeracji krakowskiej -->
+		<!-- Strona główna na której wyświetlana jest lista ze stacjami pomiarowymi na terenie krakowskowa -->
 		
 		<div data-role="page" id="pageone">
 			<div data-role="panel" id="myPanel" data-display="overlay">
@@ -23,7 +23,7 @@
 				<ul data-role="listview" id="sortedList">
 					<li><a href="#pageone" class="ui-btn ui-btn-inline">Lista stacji pomiarowych</a></li>
 					<li><a href="#gps" class="ui-btn ui-btn-inline">Lokalizacja stacji</a></li>
-					<li><a href="#wynikipomiarowe" class="ui-btn ui-btn-inline">Wyniki pomiarowe</a></li>
+					<li><a href="#wynikipomiarowe" class="ui-btn ui-btn-inline">Darmowa komunikacja miejska</a></li>
 					<li><a href="#powiadomienia" data-rel="close" class="ui-btn ui-btn-inline">Powiadomienia</a></li>
 				</ul>
 			</div>
@@ -71,11 +71,6 @@
 					<p id="station8Name">Nazwa stacji:</p>
 					<p id="station8Adress">Adres:</p>
 					<p>Stan jakości powietrza: <strong  id="station8Stan"></strong></p>
-				</a>
-				<a href="#stationDane" id="station9Btn" onclick="station9dane()" class="ui-btn ui-btn-inline">
-					<p id="station9Name">Nazwa stacji:</p>
-					<p id="station9Adress">Adres:</p>
-					<p>Stan jakości powietrza: <strong  id="station9Stan"></strong></p>
 				</a>
 			</div>
 			</div>
@@ -164,10 +159,10 @@
 			    </ul>
 			    <h2>Dwutlenek siarki SO2:</h2>
 				<ul data-role="listview">
-			      <li><a href="#">Wartość pomiaru: <strong id="stationPM25">-</strong></a></li>
-			      <li><a href="#">Data pomiaru: <strong id="stationPM25Date">-</strong></a></li>
-			      <li><a href="#">Norma: <strong id="stationPM25Norm">-</strong>%</a></li>
-			      <li><a href="#">Stan powietrza: <strong id="stationPM25Stan">-</strong></a></li>
+			      <li><a href="#">Wartość pomiaru: <strong id="stationSO2">-</strong></a></li>
+			      <li><a href="#">Data pomiaru: <strong id="stationSO2Date">-</strong></a></li>
+			      <li><a href="#">Norma: <strong id="stationSO2Norm">-</strong>%</a></li>
+			      <li><a href="#">Stan powietrza: <strong id="stationSO2Stan">-</strong></a></li>
 			    </ul>
 			    <h2>Ozon O3:</h2>
 				<ul data-role="listview">
