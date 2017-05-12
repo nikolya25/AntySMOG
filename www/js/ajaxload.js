@@ -500,7 +500,7 @@ function mpkFree(){
 
 		for (var x = 0; x < 58; x++) {
 			if (dane1.values[x].date == wczoraj23) {
-				//document.getElementById('srednia1').innerHTML = dane1.values[x].date;
+				document.getElementById('data3').innerHTML = dane1.values[x].date;
 				for (var i = 0; i < 12; i++) {
 					suma1 = suma1 + dane1.values[x + i].value;
 				}
