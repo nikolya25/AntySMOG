@@ -494,12 +494,13 @@ function mpkFree(){
        		return (i < 10)? '0'+i : i;
     	}
 		var wczoraj23 =currentDate.getFullYear() + "-"+ leadingZero((currentDate.getMonth()+1)) + "-"  + leadingZero((currentDate.getDate() - 1)) + " " +"11:00:00";
+		var wczoraj23String=wczoraj23.toString();
 		var suma1 = 0;
 		var srednia1 = 0;
 
 
 		for (var x = 0; x < 58; x++) {
-			if (dane1.values[x].date == wczoraj23) {
+			if (dane1.values[x].date.toString() == wczoraj23String) {
 				document.getElementById('data3').innerHTML = dane1.values[x].date;
 				for (var i = 0; i < 12; i++) {
 					suma1 = suma1 + dane1.values[x + i].value;
@@ -512,8 +513,8 @@ function mpkFree(){
 			}
 			break;
 		}
-		document.getElementById('data1').innerHTML = dane1.values[17].date;
-		document.getElementById('data2').innerHTML = wczoraj23;
+		document.getElementById('data1').innerHTML = dane1.values[17].date.toString();
+		document.getElementById('data2').innerHTML = wczoraj23.toString();
 		document.getElementById('srednia1').innerHTML = srednia1;
 		document.getElementById('srednia2').innerHTML = srednia2;
 		
