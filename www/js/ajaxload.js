@@ -11,7 +11,7 @@ $.ajax({
 	dataType: "json"
 }).done(function (data) {
 
-    for (var x=0; x<(data[].length + 1); x++) {
+    for (var x=0; x<170; x++) {
     	if (data[x].id == 10123) {
 	    	document.getElementById('station1Name').innerHTML = data[x].stationName;
 	    	document.getElementById('station1NameH').innerHTML = data[x].stationName;
