@@ -496,7 +496,6 @@ function mpkFree(){
 
 
 		for (var x = 0; x < 58; x++) {
-			
 			if (dane1.values[x].date == wczoraj23) {
 				document.getElementById('srednia1').innerHTML = dane1.values[x].date;
 				for (var i = 0; i < 12; i++) {
@@ -510,8 +509,9 @@ function mpkFree(){
 			}
 			break;
 		}
-
+		document.getElementById('srednia1').innerHTML = dane1.values[17].date;
 		document.getElementById('srednia2').innerHTML = wczoraj23;
+		
 			
 	});
 
