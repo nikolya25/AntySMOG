@@ -5,7 +5,7 @@ var normaBenzen = 5;
 var normaPM25 = 25;
 var normaSO2 = 125;
 var normaO3 = 120;
-var station1NameH, station2NameH, station3NameH, station4NameH, station5NameH, station6NameH, station7NameH, station8NameH, station9NameH, 
+var station1NameH, station2NameH, station3NameH, station4NameH, station5NameH, station6NameH, station7NameH, station8NameH, station9NameH;
 $.ajax({
 	method: "GET",
 	url: "http://api.gios.gov.pl/pjp-api/rest/station/findAll",
