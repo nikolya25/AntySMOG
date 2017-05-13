@@ -3,6 +3,7 @@ function init() {
 }
 
 var map;
+var data = [];
 function onDeviceReady() {
 	var div = document.getElementById("map");
 	map = plugin.google.maps.Map.getMap(div, {
@@ -31,7 +32,7 @@ function onDeviceReady() {
 }
 
 function stationsOnMap() {
-	var data = [
+	data = [
 		{
 			'position': {lat: 50.081197, lng: 19.895358},
 			'title': "Kraków, ul. Złoty Róg",
@@ -83,39 +84,43 @@ function stationsOnMap() {
 	addMarkers(data, function(markers) {
 		markers[markers.length - 1].showInfoWindow();
 	});
-	
-	map.addEventListener(plugin.google.maps.event.MY_LOCATION_BUTTON_CLICK, onLocBtnClick);
 }
 
-function onLocBtnClick() {
-	function onSuccess(location) {
-		var msg = ["Current location:\n",
-		"latitude:" + location.latLng.lat,
-		"longitude:" + location.latLng.lng,
-		"speed:" + location.speed,
-		"time:" + location.time,
-		"bearing:" + location.bearing].join("\n");
+function myPositionAndClosestStation() {
+	var stla = [];
+	var myLat;
+	var myLng;
+	
+	var onSuccess = function(position) {
+		/*alert('Latitude: '          + position.coords.latitude          + '\n' +
+					'Longitude: '         + position.coords.longitude         + '\n' +
+					'Altitude: '          + position.coords.altitude          + '\n' +
+					'Accuracy: '          + position.coords.accuracy          + '\n' +
+					'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+					'Heading: '           + position.coords.heading           + '\n' +
+					'Speed: '             + position.coords.speed             + '\n' +
+					'Timestamp: '         + position.timestamp                + '\n');
+		*/
+		myLat = position.coords.latitude;
+		myLng = position.coords.longitude;
+
+		for (var i = 0; i < data.length; i++) {
+			stla[i] = data[i];
+		}
 		
-		map.addMarker({
-			'position': location.latLng,
-			'title': msg,
-		}, function(marker) {
-			marker.showInfoWindow();
-			map.animateCamera({
-				target: location.latLng,
-				zoom: 16
-			}, function() {
-				marker.showInfoWindow();
-			});
+		stla.sort(function(a, b){
+			return Math.sqrt(Math.pow(myLat - a.position.lat, 2) + Math.pow(myLng - a.position.lng, 2)) - Math.sqrt(Math.pow(myLat - b.position.lat, 2) + Math.pow(myLng - b.position.lng, 2))
 		});
-	};
+		document.getElementById('test1').innerHTML = "Najbliższa stacja: " + stla[0].title;
+	}
 
-	var onError = function(msg) {
-		alert(JSON.stringify(msg));
-	};
-
-	map.clear();
-	map.getMyLocation(onSuccess, onError);
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
 }
 
 function setupPush() {
