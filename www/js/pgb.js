@@ -27,15 +27,10 @@ function onDeviceReady() {
 		}
 	});
 
-	map.addEventListener(plugin.google.maps.event.MAP_READY, onMapReady);
+	setupPush();
 }
 
-function onMapReady() {
-	var stButton = document.getElementById("stations");
-	stButton.addEventListener("click", onBtnClicked);
-}
-
-function onBtnClicked() {
+function stationsOnMap() {
 	var data = [
 		{
 			'position': {lat: 50.057678, lng: 19.926189},
@@ -121,4 +116,46 @@ function onLocBtnClick() {
 
 	map.clear();
 	map.getMyLocation(onSuccess, onError);
+}
+
+function setupPush() {
+	var push = PushNotification.init({
+		"android": {
+			"senderID": "781429210866"
+		}
+	});
+
+	push.on('registration', function(data) {
+		console.log("registration event: " + data.registrationId);
+		alert("registration event: " + data.registrationId);
+		document.getElementById('test').innerHTML = data.registrationId;
+		var oldRegId = localStorage.getItem('registrationId');
+		if (oldRegId !== data.registrationId) {
+			// Save new registration ID
+			localStorage.setItem('registrationId', data.registrationId);
+			// Post registrationId to your app server as the value has changed
+		}
+	});
+
+	push.on('error', function(e) {
+		console.log("push error = " + e.message);
+		alert("push error = " + e.message);
+	});
+	
+	push.on('notification', function(data) {
+        console.log('notification event');
+        alert('notification event');
+        navigator.notification.alert(
+            data.message,         // message
+            null,                 // callback
+            data.title,           // title
+            'Ok'                  // buttonName
+        );
+
+	push.finish(function() {
+        console.log('success');
+        }, function() {
+            console.log('error');
+        });
+    });
 }
