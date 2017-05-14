@@ -529,7 +529,7 @@ function mpkFree(){
 			//navigator.notification.alert(info);
 			
 	});
-	document.getElementById('data'+z.toString()).innerHTML = srednia1 + "  "+ srednia2;
+	document.getElementById('data'+z.toString()).innerHTML = srednia1;
 	srednia1Sum = srednia1Sum + parseFloat(window.localStorage.getItem('srednia1ls'));
 	srednia2Sum = srednia2Sum + parseFloat(window.localStorage.getItem('srednia2ls'));
 	}
