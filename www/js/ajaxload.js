@@ -529,11 +529,14 @@ function mpkFree(){
 			window.localStorage.setItem("srednia2ls", srednia2);
 
 			
-	});
+		});
 	
 	srednia1Sum = srednia1Sum + parseFloat(window.localStorage.getItem('srednia1ls'));
 	srednia2Sum = srednia2Sum + parseFloat(window.localStorage.getItem('srednia2ls'));
 	document.getElementById(z).innerHTML = parseFloat(window.localStorage.getItem('srednia1ls'));
+	window.localStorage.removeItem("srednia1ls");
+	window.localStorage.removeItem("srednia2ls");
+
 	}
 	document.getElementById('srednia1').innerHTML = srednia1Sum;
 	document.getElementById('srednia2').innerHTML = srednia2Sum;
