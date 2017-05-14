@@ -510,7 +510,7 @@ function mpkFree(){
 					suma2 = suma2 + dane1.values[x + j].value;
 				}
 				srednia2Sum = srednia2Sum + (suma2 / 16);
-				break;
+				
 			}
 			
 		}
