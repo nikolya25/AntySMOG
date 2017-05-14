@@ -517,8 +517,8 @@ function mpkFree(){
 			}
 			
 		}
-		srednia1Sum = srednia1Sum = srednia1;
-		srednia2Sum = srednia2Sum = srednia2;   
+		srednia1Sum = srednia1;
+		srednia2Sum = srednia2;   
 		document.getElementById('data1').innerHTML = srednia1;
 		document.getElementById('data2').innerHTML = srednia2;
 			
