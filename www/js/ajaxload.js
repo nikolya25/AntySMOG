@@ -525,6 +525,33 @@ function mpkFree(){
 		document.getElementById('data2').innerHTML = srednia2;
 			
 	});
+	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/data/getData/16786", function( dane1 ) {
+		var suma1 = 0;
+		var suma2 = 0;
+		var srednia1 = 0;
+		var srednia2 = 0;
+		
+		for (var x = 0; x < 58; x++) {
+			if (dane1.values[x].date.toString() == wczoraj23String) {
+				document.getElementById('data3').innerHTML = dane1.values[x].date;
+				for (var y = 0; y < 12; y++) {
+					suma1 = suma1 + dane1.values[x + y].value;
+				}
+				srednia1 = suma1 / 12;
+				for (var j = 7; j < 24; j++) {
+					suma2 = suma2 + dane1.values[x + j].value;
+				}
+				srednia2 = suma2 / 16;
+				break;
+			}
+			
+		}
+		window.localStorage.setItem("srednia1ls", srednia1);
+		window.localStorage.setItem("srednia2ls", srednia2);   
+		document.getElementById('data1').innerHTML = srednia1;
+		document.getElementById('data2').innerHTML = srednia2;
+			
+	});
 	//document.getElementById('data1').innerHTML = dane1.values[17].date.toString(); window local storage
 	//document.getElementById('data2').innerHTML = wczoraj23.toString();
 	srednia1Sum = srednia1Sum + parseFloat(window.localStorage.getItem('srednia1ls'));
