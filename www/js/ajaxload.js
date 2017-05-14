@@ -486,8 +486,7 @@ function station8dane(){
 }
 
 // funkcja do sprawdzania czy jest darmowe mpk
-var srednia2Sum = 0;
-var srednia1Sum = 0;
+
 function mpkFree(){
 	var currentDate = new Date();
 	function leadingZero(i) {
@@ -495,6 +494,8 @@ function mpkFree(){
     }
 	var wczoraj23 =currentDate.getFullYear() + "-"+ leadingZero((currentDate.getMonth()+1)) + "-"  + leadingZero((currentDate.getDate() - 1)) + " " +"11:00:00";
 	var wczoraj23String=wczoraj23.toString();
+	var srednia2Sum = 0;
+	var srednia1Sum = 0;
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/data/getData/16377", function( dane1 ) {
 		var suma1 = 0;
 		var suma2 = 0;
@@ -509,7 +510,7 @@ function mpkFree(){
 					suma2 = suma2 + dane1.values[x + j].value;
 				}
 				srednia2Sum = srednia2Sum + (suma2 / 16);
-				//break;
+				break;
 			}
 			
 		}
