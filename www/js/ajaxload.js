@@ -503,6 +503,11 @@ function mpkFree(){
 	//window.localStorage.setItem("srednia2ls", "0");
 	var idTab=['16786','16377','2750','2792','17309','16784','2770','17243'];
 	for (var z = 0; z < 8; z++) {
+		document.getElementById(z).innerHTML = idTab[z];
+	}
+}
+	/*
+	for (var z = 0; z < 8; z++) {
 		$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/data/getData/"+idTab[z], function( dane1 ) {
 			var suma1 = 0;
 			var suma2 = 0;
@@ -520,7 +525,7 @@ function mpkFree(){
 						suma2 = suma2 + dane1.values[x + j].value;
 					}
 					srednia2 = suma2 / 16;
-					//break;
+					break;
 				}
 				
 			}
@@ -552,6 +557,7 @@ function mpkFree(){
 
 
 }
+*/
 
 
 
