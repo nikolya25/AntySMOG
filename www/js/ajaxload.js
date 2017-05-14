@@ -519,16 +519,16 @@ function mpkFree(){
 			}
 			
 		}
-		localStorage.setItem("srednia1ls", srednia1);
-		localStorage.setItem("srednia2ls", srednia2);   
+		window.localStorage.setItem("srednia1ls", srednia1);
+		window.localStorage.setItem("srednia2ls", srednia2);   
 		document.getElementById('data1').innerHTML = srednia1;
 		document.getElementById('data2').innerHTML = srednia2;
 			
 	});
 	//document.getElementById('data1').innerHTML = dane1.values[17].date.toString(); window local storage
 	//document.getElementById('data2').innerHTML = wczoraj23.toString();
-	srednia1Sum = srednia1Sum + sessionStorage.getItem('srednia1ls');
-	srednia2Sum = srednia2Sum + sessionStorage.getItem('srednia2ls');
+	srednia1Sum = srednia1Sum + window.localStorage.getItem('srednia1ls');
+	srednia2Sum = srednia2Sum + window.localStorage.getItem('srednia2ls');
 	document.getElementById('srednia1').innerHTML = srednia1Sum;
 	document.getElementById('srednia2').innerHTML = srednia2Sum;
 
