@@ -522,6 +522,8 @@ function mpkFree(){
 				}
 				
 			}
+			document.getElementById('data1').innerHTML = +srednia1;
+			document.getElementById('data2').innerHTML = +srednia2;
 			window.localStorage.setItem("srednia1ls", srednia1);
 			window.localStorage.setItem("srednia2ls", srednia2);
 			//info = 'srednia1:' + srednia1 + 'srednia2:' + srednia2 + 'srednia1 w localstor:' + parseFloat(window.localStorage.getItem('srednia1ls') + 'srednia2 w localstor:' + parseFloat(window.localStorage.getItem('srednia2ls') ; 
