@@ -514,8 +514,8 @@ function mpkFree(){
 			}
 			
 		}
-		
-		
+		document.getElementById('data1').innerHTML = srednia1Sum;
+		document.getElementById('data2').innerHTML = srednia2Sum;
 			
 	});
 	//document.getElementById('data1').innerHTML = dane1.values[17].date.toString();
