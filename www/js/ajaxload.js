@@ -522,7 +522,7 @@ function mpkFree(){
 				}
 				
 			}
-			document.getElementById('data'+(z.toString())).innerHTML = srednia1;
+			document.getElementById(z).innerHTML = srednia1;
 			window.localStorage.setItem("srednia1ls", srednia1);
 			window.localStorage.setItem("srednia2ls", srednia2);
 
