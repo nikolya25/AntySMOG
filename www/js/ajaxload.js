@@ -527,8 +527,8 @@ function mpkFree(){
 	});
 	//document.getElementById('data1').innerHTML = dane1.values[17].date.toString(); window local storage
 	//document.getElementById('data2').innerHTML = wczoraj23.toString();
-	srednia1Sum = srednia1Sum + window.localStorage.getItem('srednia1ls');
-	srednia2Sum = srednia2Sum + window.localStorage.getItem('srednia2ls');
+	srednia1Sum = srednia1Sum + parseFloat(window.localStorage.getItem('srednia1ls'));
+	srednia2Sum = srednia2Sum + parseFloat(window.localStorage.getItem('srednia2ls'));
 	document.getElementById('srednia1').innerHTML = srednia1Sum;
 	document.getElementById('srednia2').innerHTML = srednia2Sum;
 
