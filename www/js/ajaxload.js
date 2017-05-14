@@ -545,7 +545,7 @@ function mpkFree(){
 		method: "GET",
 		url: "http://api.gios.gov.pl/pjp-api/rest/data/getData/16377",
 		dataType: "json"
-	}).done(function (data) {
+	}).done(function (dane1) {
 		var suma1 = 0;
 		var suma2 = 0;
 		var srednia1 = 0;
