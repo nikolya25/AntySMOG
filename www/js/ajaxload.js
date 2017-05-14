@@ -22,6 +22,7 @@ $.ajax({
 			  document.getElementById('station1Stan').innerHTML = stan1.stIndexLevel.indexLevelName;
 			});
 		}
+
 		//Kraków, ul. Dietla
 		if (data[x].id == 10121) {
 	    	document.getElementById('station2Name').innerHTML = data[x].stationName;
@@ -486,7 +487,7 @@ function station8dane(){
 }
 
 // funkcja do sprawdzania czy jest darmowe mpk
-
+/*
 function mpkFree(){
 	var currentDate = new Date();
 	function leadingZero(i) {
@@ -523,10 +524,57 @@ function mpkFree(){
 		document.getElementById('data2').innerHTML = srednia2;
 			
 	});
-	//document.getElementById('data1').innerHTML = dane1.values[17].date.toString();
+	//document.getElementById('data1').innerHTML = dane1.values[17].date.toString(); window local storage
 	//document.getElementById('data2').innerHTML = wczoraj23.toString();
 	document.getElementById('srednia1').innerHTML = srednia1Sum;
 	document.getElementById('srednia2').innerHTML = srednia2Sum;
 
 
 }
+*/
+function mpkFree(){
+	var currentDate = new Date();
+	function leadingZero(i) {
+       	return (i < 10)? '0'+i : i;
+    }
+	var wczoraj23 =currentDate.getFullYear() + "-"+ leadingZero((currentDate.getMonth()+1)) + "-"  + leadingZero((currentDate.getDate() - 1)) + " " +"11:00:00";
+	var wczoraj23String=wczoraj23.toString();
+	var srednia2Sum = 0;
+	var srednia1Sum = 0;
+	$.ajax({
+		method: "GET",
+		url: "http://api.gios.gov.pl/pjp-api/rest/data/getData/16377",
+		dataType: "json"
+	}).done(function (data) {
+		var suma1 = 0;
+		var suma2 = 0;
+		var srednia1 = 0;
+		var srednia2 = 0;
+		
+		for (var x = 0; x < 58; x++) {
+			if (dane1.values[x].date.toString() == wczoraj23String) {
+				document.getElementById('data3').innerHTML = dane1.values[x].date;
+				for (var y = 0; y < 12; y++) {
+					suma1 = suma1 + dane1.values[x + y].value;
+				}
+				srednia1 = suma1 / 12;
+				for (var j = 7; j < 24; j++) {
+					suma2 = suma2 + dane1.values[x + j].value;
+				}
+				srednia2 = suma2 / 16;
+				break;
+			}
+			
+		}
+		srednia1Sum = srednia1;
+		srednia2Sum = srednia2;   
+		document.getElementById('data1').innerHTML = srednia1;
+		document.getElementById('data2').innerHTML = srednia2;
+	    
+
+
+	});
+	document.getElementById('srednia1').innerHTML = srednia1Sum;
+	document.getElementById('srednia2').innerHTML = srednia2Sum;
+}
+
