@@ -510,14 +510,14 @@ function mpkFree(){
 					suma2 = suma2 + dane1.values[x + j].value;
 				}
 				srednia2Sum = srednia2Sum + (suma2 / 16);
-				
+				break;
 			}
 			
 		}
 		document.getElementById('data1').innerHTML = dane1.values[17].date.toString();
 		document.getElementById('data2').innerHTML = wczoraj23.toString();
-		document.getElementById('srednia1Sum').innerHTML = srednia1;
-		document.getElementById('srednia2Sum').innerHTML = srednia2;
+		document.getElementById('srednia1').innerHTML = srednia1Sum;
+		document.getElementById('srednia2').innerHTML = srednia2Sum;
 		
 			
 	});
