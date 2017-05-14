@@ -487,7 +487,7 @@ function station8dane(){
 }
 
 // funkcja do sprawdzania czy jest darmowe mpk
-
+/*
 function mpkFree(){
 	
 	var currentDate = new Date();
@@ -535,5 +535,6 @@ function mpkFree(){
 
 
 }
+*/
 
 
