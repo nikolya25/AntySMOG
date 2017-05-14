@@ -509,7 +509,7 @@ function mpkFree(){
 			
 			for (var x = 0; x < 58; x++) {
 				if (dane1.values[x].date.toString() == wczoraj23String) {
-					document.getElementById('data3').innerHTML = dane1.values[x].date;
+					document.getElementById('data9').innerHTML = dane1.values[x].date;
 					for (var y = 0; y < 12; y++) {
 						suma1 = suma1 + dane1.values[x + y].value;
 					}
@@ -522,8 +522,7 @@ function mpkFree(){
 				}
 				
 			}
-			document.getElementById('data1').innerHTML = +srednia1;
-			document.getElementById('data2').innerHTML = +srednia2;
+			document.getElementById('data'+(z+1).innerHTML = srednia1 + "  "+ srednia2;
 			window.localStorage.setItem("srednia1ls", srednia1);
 			window.localStorage.setItem("srednia2ls", srednia2);
 			//info = 'srednia1:' + srednia1 + 'srednia2:' + srednia2 + 'srednia1 w localstor:' + parseFloat(window.localStorage.getItem('srednia1ls') + 'srednia2 w localstor:' + parseFloat(window.localStorage.getItem('srednia2ls') ; 
