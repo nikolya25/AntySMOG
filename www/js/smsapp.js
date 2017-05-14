@@ -3,7 +3,7 @@ var smsapp = {
         var number = document.getElementById('numberTxt').value;
         var message = document.getElementById('messageTxt').value;
         if (document.getElementById('messageTxt').value === "") {
-			message = "Witam, stan powietrza w mojej dzielnicy jest ";
+			message = "Witam, stan powietrza w mojej dzielnicy jest " + stla[0].snippet;
 		} else {
 			message = document.getElementById('messageTxt').value;
 		}

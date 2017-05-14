@@ -64,9 +64,6 @@ function stationsAndMeOnMap() {
 			break;
 		case "Bardzo zły":
 			icons[i] = 'purple';
-			break;
-		default: 
-			icons[i] = 'blue';
 		}
 	}
 	var data = [
@@ -141,7 +138,6 @@ function stationsAndMeOnMap() {
 		stla.sort(function(a, b){
 			return Math.sqrt(Math.pow(myLat - a.position.lat, 2) + Math.pow(myLng - a.position.lng, 2)) - Math.sqrt(Math.pow(myLat - b.position.lat, 2) + Math.pow(myLng - b.position.lng, 2))
 		});
-		document.getElementById('stanNajbliższej').innerHTML = stla[0].snippet;
 		
 		map.addMarker({
 			'position': {"lat": myLat, "lng": myLng},
