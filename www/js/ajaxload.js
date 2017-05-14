@@ -525,6 +525,8 @@ function mpkFree(){
 		document.getElementById('data2').innerHTML = srednia2;
 			
 	});
+	srednia1Sum = srednia1Sum + parseFloat(window.localStorage.getItem('srednia1ls'));
+	srednia2Sum = srednia2Sum + parseFloat(window.localStorage.getItem('srednia2ls'));
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/data/getData/16786", function( dane1 ) {
 		var suma1 = 0;
 		var suma2 = 0;
