@@ -514,13 +514,14 @@ function mpkFree(){
 			}
 			
 		}
-		document.getElementById('data1').innerHTML = dane1.values[17].date.toString();
-		document.getElementById('data2').innerHTML = wczoraj23.toString();
-		document.getElementById('srednia1').innerHTML = srednia1Sum;
-		document.getElementById('srednia2').innerHTML = srednia2Sum;
+		
 		
 			
 	});
+	document.getElementById('data1').innerHTML = dane1.values[17].date.toString();
+	document.getElementById('data2').innerHTML = wczoraj23.toString();
+	document.getElementById('srednia1').innerHTML = srednia1Sum;
+	document.getElementById('srednia2').innerHTML = srednia2Sum;
 
 
 }
