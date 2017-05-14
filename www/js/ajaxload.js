@@ -522,14 +522,13 @@ function mpkFree(){
 				}
 				
 			}
-			
+			document.getElementById('data'+(z.toString())).innerHTML = srednia1;
 			window.localStorage.setItem("srednia1ls", srednia1);
 			window.localStorage.setItem("srednia2ls", srednia2);
-			//info = 'srednia1:' + srednia1 + 'srednia2:' + srednia2 + 'srednia1 w localstor:' + parseFloat(window.localStorage.getItem('srednia1ls') + 'srednia2 w localstor:' + parseFloat(window.localStorage.getItem('srednia2ls') ; 
-			//navigator.notification.alert(info);
+
 			
 	});
-	document.getElementById('data'+(z.toString())).innerHTML = parseFloat(srednia1);
+	
 	srednia1Sum = srednia1Sum + parseFloat(window.localStorage.getItem('srednia1ls'));
 	srednia2Sum = srednia2Sum + parseFloat(window.localStorage.getItem('srednia2ls'));
 	}
