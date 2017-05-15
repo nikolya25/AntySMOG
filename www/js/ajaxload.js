@@ -490,7 +490,6 @@ function station8dane(){
 // funkcja do sprawdzania czy jest darmowe mpk
 
 function mpkFree(){
-	
 	var currentDate = new Date();
 	function leadingZero(i) {
        	return (i < 10)? '0'+i : i;
@@ -499,65 +498,42 @@ function mpkFree(){
 	var wczoraj23String=wczoraj23.toString();
 	var srednia2Sum = 0;
 	var srednia1Sum = 0;
-	//window.localStorage.setItem("srednia1ls", "0");
-	//window.localStorage.setItem("srednia2ls", "0");
 	var idTab=['16786','16377','2750','2792','17309','16784','2770','17243'];
-	for (var z = 0; z < 8; z++) {
-		document.getElementById(z).innerHTML = idTab[z];
-	}
-}
-	/*
+
 	for (var z = 0; z < 8; z++) {
 		$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/data/getData/"+idTab[z], function( dane1 ) {
 			var suma1 = 0;
 			var suma2 = 0;
 			var srednia1 = 0;
 			var srednia2 = 0;
-			
-			for (var x = 0; x < 58; x++) {
+			for (var x = 0; x < 30; x++) {
 				if (dane1.values[x].date.toString() == wczoraj23String) {
 					document.getElementById('data9').innerHTML = dane1.values[x].date;
 					for (var y = 0; y < 12; y++) {
 						suma1 = suma1 + dane1.values[x + y].value;
+						document.getElementById('q1').innerHTML = suma1;
 					}
 					srednia1 = suma1 / 12;
+					document.getElementById('q2').innerHTML = srednia1;
 					for (var j = 7; j < 24; j++) {
 						suma2 = suma2 + dane1.values[x + j].value;
+						document.getElementById('q3').innerHTML = suma2;
 					}
 					srednia2 = suma2 / 16;
-					break;
+					document.getElementById('q1').innerHTML = srednia2;
 				}
-				
 			}
-			document.getElementById(z).innerHTML = srednia1;
-			window.localStorage.setItem("srednia1ls", srednia1);
-			window.localStorage.setItem("srednia2ls", srednia2);
-
-			
+			srednia1Sum = document.getElementById('q2').innerHTML;
+			srednia2Sum = document.getElementById('q4').innerHTML;
+			var srednia1Final = srednia1 / 8;
+			var srednia2Final = srednia2 / 8;
+			document.getElementById('q7').innerHTML = srednia1Final;
+			document.getElementById('q8').innerHTML = srednia2Final;
+			if (srednia1Final >= 150 || srednia2Final >= 150) {
+				document.getElementById('informacjaMPK').innerHTML = "Z powodu wysokiego zanieczyszczenia powietrza jakie miało miejsce w dniu wczorajszym, w dniu dzisiejszym obowiązuje darmowa komunikacja miejska na terenie całego miasta Krakowa za okazaniem dowodu rejestracyjnego.";
+			} else {
+				document.getElementById('informacjaMPK').innerHTML = "Brak podstaw do ogłoszenia darmowej komunikacji miejskiej. <br />Średnia1: " + srednia1Final + "<br />Średnia2:" + srednia2Final;
+			}
 		});
-	
-	srednia1Sum = srednia1Sum + parseFloat(window.localStorage.getItem('srednia1ls'));
-	srednia2Sum = srednia2Sum + parseFloat(window.localStorage.getItem('srednia2ls'));
-	document.getElementById(z).innerHTML = parseFloat(window.localStorage.getItem('srednia1ls'));
-	window.localStorage.removeItem("srednia1ls");
-	window.localStorage.removeItem("srednia2ls");
-
 	}
-	document.getElementById('srednia1').innerHTML = srednia1Sum;
-	document.getElementById('srednia2').innerHTML = srednia2Sum;
-	var srednia1Final = srednia1Sum / 8;
-	var srednia2Final = srednia2Sum / 8;
-	if (srednia1Final >= 150 || srednia2Final>=150) {
-		document.getElementById('informacjaMPK').innerHTML = "Z powodu wysokiego zanieczyszczenia powietrza jakie miało miejsce w dniu wczorajszym, w dniu dzisiejszym obowiązuje darmowa komunikacja miejska na terenie całego miasta Krakowa za okazaniem dowodu rejestracyjnego.";
-	}
-	else{
-		document.getElementById('informacjaMPK').innerHTML = "Brak podstaw do ogłoszenia darmowej komunikacji miejskiej"+ srednia1Final + " Srednia2:" + srednia2Final;
-	}
-	
-
-
 }
-*/
-
-
-
