@@ -70,6 +70,6 @@ function powiadomienia(){
 function powiadomieniaBrak(){
 	cordova.plugins.notification.local.schedule({
 	  id: 1,
-	  title: 'Wyłączono powiadomienia',
+	  title: 'Wyłączono powiadomienia'
 	});
 }
