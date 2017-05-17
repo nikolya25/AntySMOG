@@ -1,3 +1,8 @@
+(function(){
+	if (localStorage.getItem("pozwolenie") == "on") {
+		powiadomienia()
+	}
+})();
 
 function checkRadio() {
 	if(document.getElementById('1godzina').checked) {
@@ -34,6 +39,9 @@ function ustawPowiadomienie(){
 	if (localStorage.getItem("pozwolenie") == "on") {
 		powiadomienia()
 	}
+	else{
+		powiadomieniaBrak()
+	}
 }
 
 function wykonajPomiar(){
@@ -56,5 +64,11 @@ function powiadomienia(){
 	  every: localStorage.getItem("interwal"), //, "hour", "week", "month", "year"
 	  autoClear: false,
 	  at: new Date(new Date().getTime() + 5*1000)
+	});
+}
+
+function powiadomieniaBrak(){
+	cordova.plugins.notification.local.schedule({
+	  id: 1,
 	});
 }
