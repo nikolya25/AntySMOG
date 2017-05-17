@@ -28,5 +28,7 @@
 	<plugin name="cordova-plugin-googlemaps" spec="~1.4.0">
 		<variable name="API_KEY_FOR_ANDROID" value="AIzaSyDlnYXmwjsfy9DbCi5Kn4NfXbS6Z78S_Ko" />
 	</plugin>
+	<splash src="www/img/splash.jpg" density="land-hdpi"/>
+	<icon src="www/img/icon.jpg" density="ldpi" />
 
 </widget>
