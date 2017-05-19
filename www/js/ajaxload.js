@@ -8,7 +8,6 @@ var normaSO2 = 125;
 var normaO3 = 120;
 var station1NameH, station2NameH, station3NameH, station4NameH, station5NameH, station6NameH, station7NameH, station8NameH;
 var station1StanH, station2StanH, station3StanH, station4StanH, station5StanH, station6StanH, station7StanH, station8StanH;
-var station1PM10Norm, station2PM10Norm, station3PM10Norm, station4PM10Norm, station5PM10Norm, station6PM10Norm, station7PM10Norm, station8PM10Norm;
 $.ajax({
 	method: "GET",
 	url: "http://api.gios.gov.pl/pjp-api/rest/station/findAll",
@@ -118,9 +117,10 @@ function station1dane(){
 			    if (dane1.values[x].value != null) {
 			    	document.getElementById('stationPM10').innerHTML = dane1.values[x].value;
 			    	document.getElementById('stationPM10Date').innerHTML = dane1.values[x].date;
-			    	normPM10Now=(dane1.values[x].value / normaPM10)*100;
+			    	normPM10Now = ((dane1.values[x].value / normaPM10)*100).toFixed(2);
 			    	document.getElementById('stationPM10Norm').innerHTML = normPM10Now;
-			    	station1PM10Norm = normPM10Now;
+					localStorage.setItem("normPM10Now", normPM10Now);
+					document.getElementById('messageTxt').value = "Stan powietrza na stacji " + station1NameH + " jest " + station1StanH + ". Stężenie pyłu PM10 wynosi " + localStorage.getItem("normPM10Now"); + "%";
 					break;
 			    }
 			}
@@ -132,7 +132,6 @@ function station1dane(){
 			})
 	document.getElementById('stationNameH').innerHTML = station1NameH;
 	document.getElementById('stationNameHP').innerHTML = station1NameH;
-	document.getElementById('messageTxt').value = "Stan powietrza na stacji " + station1NameH + " jest " + station1StanH + ". Stężenie pyłu PM10 wynosi " + station1PM10Norm + "%";
 }
 
 // ładowanie danych ze stacji 2 Kraków, ul. Dietla
@@ -144,9 +143,10 @@ function station2dane(){
 			    if (dane1.values[x].value != null) {
 			    	document.getElementById('stationPM10').innerHTML = dane1.values[x].value;
 			    	document.getElementById('stationPM10Date').innerHTML = dane1.values[x].date;
-			    	normPM10Now=(dane1.values[x].value / normaPM10)*100;
+			    	normPM10Now = ((dane1.values[x].value / normaPM10)*100).toFixed(2);
 			    	document.getElementById('stationPM10Norm').innerHTML = normPM10Now;
-			    	station2PM10Norm = normPM10Now;
+			    	localStorage.setItem("normPM10Now", normPM10Now);
+					document.getElementById('messageTxt').value = "Stan powietrza na stacji " + station2NameH + " jest " + station2StanH + ". Stężenie pyłu PM10 wynosi " + localStorage.getItem("normPM10Now") + "%";
 			    	break;
 			    }
 			}
@@ -158,7 +158,7 @@ function station2dane(){
 			    if (dane1.values[x].value != null) {
 			    	document.getElementById('stationNO2').innerHTML = dane1.values[x].value;
 			    	document.getElementById('stationNO2Date').innerHTML = dane1.values[x].date;
-			    	norm2NO2Now=(dane1.values[x].value / normaNO2)*100;
+			    	norm2NO2Now = ((dane1.values[x].value / normaNO2)*100).toFixed(2);
 			    	document.getElementById('stationNO2Norm').innerHTML = norm2NO2Now
 			    	break;
 			    }
@@ -171,7 +171,6 @@ function station2dane(){
 			})
 	document.getElementById('stationNameH').innerHTML = station2NameH;
 	document.getElementById('stationNameHP').innerHTML = station2NameH;
-	document.getElementById('messageTxt').value = "Stan powietrza na stacji " + station2NameH + " jest " + station2StanH + ". Stężenie pyłu PM10 wynosi " + station2PM10Norm + "%";
 }
 
 // ładowanie danych ze stacji 3 Kraków, Aleja Krasińskiego
@@ -184,9 +183,10 @@ function station3dane(){
 			    if (dane1.values[x].value != null) {
 			    	document.getElementById('stationPM10').innerHTML = dane1.values[x].value;
 			    	document.getElementById('stationPM10Date').innerHTML = dane1.values[x].date;
-			    	normPM10Now=(dane1.values[x].value / normaPM10)*100;
+			    	normPM10Now = ((dane1.values[x].value / normaPM10)*100).toFixed(2);
 			    	document.getElementById('stationPM10Norm').innerHTML = normPM10Now;
-					station3PM10Norm = normPM10Now;
+			    	localStorage.setItem("normPM10Now", normPM10Now);
+					document.getElementById('messageTxt').value = "Stan powietrza na stacji " + station3NameH + " jest " + station3StanH + ". Stężenie pyłu PM10 wynosi " + localStorage.getItem("normPM10Now") + "%";
 			    	break;
 			    }
 			}
@@ -199,7 +199,7 @@ function station3dane(){
 			    if (dane1.values[x].value != null) {
 			    	document.getElementById('stationNO2').innerHTML = dane1.values[x].value;
 			    	document.getElementById('stationNO2Date').innerHTML = dane1.values[x].date;
-			    	norm3NO2Now=(dane1.values[x].value / normaNO2)*100;
+			    	norm3NO2Now = ((dane1.values[x].value / normaNO2)*100).toFixed(2);
 			    	document.getElementById('stationNO2Norm').innerHTML = norm3NO2Now;
 			    	break;
 			    }
@@ -213,7 +213,7 @@ function station3dane(){
 			    if (dane1.values[x].value != null) {
 			    	document.getElementById('stationCO').innerHTML = dane1.values[x].value;
 			    	document.getElementById('stationCODate').innerHTML = dane1.values[x].date;
-			    	normCONow=(dane1.values[x].value / normaCO)*100;
+			    	normCONow = ((dane1.values[x].value / normaCO)*100).toFixed(2);
 			    	document.getElementById('stationCONorm').innerHTML = normCONow;
 			    	break;
 			    }
@@ -227,7 +227,7 @@ function station3dane(){
 			    if (dane1.values[x].value != null) {
 			    	document.getElementById('stationBenzen').innerHTML = dane1.values[x].value;
 			    	document.getElementById('stationBenzenDate').innerHTML = dane1.values[x].date;
-			    	normBenzenNow=(dane1.values[x].value / normaBenzen)*100;
+			    	normBenzenNow = ((dane1.values[x].value / normaBenzen)*100).toFixed(2);
 			    	document.getElementById('stationBenzenNorm').innerHTML = normBenzenNow;
 			    	break;
 			    }
@@ -241,7 +241,7 @@ function station3dane(){
 			    if (dane1.values[x].value != null) {
 			    	document.getElementById('stationPM25').innerHTML = dane1.values[x].value;
 			    	document.getElementById('stationPM25Date').innerHTML = dane1.values[x].date;
-			    	normPM25Now=(dane1.values[x].value / normaPM25)*100;
+			    	normPM25Now = ((dane1.values[x].value / normaPM25)*100).toFixed(2);
 			    	document.getElementById('stationPM25Norm').innerHTML = normPM25Now;
 			    	break;
 			    }
@@ -258,7 +258,6 @@ function station3dane(){
 			})
 	document.getElementById('stationNameH').innerHTML = station3NameH;
 	document.getElementById('stationNameHP').innerHTML = station3NameH;
-	document.getElementById('messageTxt').value = "Stan powietrza na stacji " + station3NameH + " jest " + station3StanH + ". Stężenie pyłu PM10 wynosi " + station3PM10Norm + "%";
 }
 
 // ładowanie danych ze stacji 4 Kraków, ul. Bulwarowa
@@ -271,9 +270,10 @@ function station4dane(){
 			    if (dane1.values[x].value != null) {
 			    	document.getElementById('stationPM10').innerHTML = dane1.values[x].value;
 			    	document.getElementById('stationPM10Date').innerHTML = dane1.values[x].date;
-			    	normPM10Now=(dane1.values[x].value / normaPM10)*100;
+			    	normPM10Now = ((dane1.values[x].value / normaPM10)*100).toFixed(2);
 			    	document.getElementById('stationPM10Norm').innerHTML = normPM10Now;
-					station4PM10Norm = normPM10Now;
+			    	localStorage.setItem("normPM10Now", normPM10Now);
+					document.getElementById('messageTxt').value = "Stan powietrza na stacji " + station4NameH + " jest " + station4StanH + ". Stężenie pyłu PM10 wynosi " + localStorage.getItem("normPM10Now") + "%";	
 			    	break;
 			    }
 			}
@@ -286,7 +286,7 @@ function station4dane(){
 			    if (dane1.values[x].value != null) {
 			    	document.getElementById('stationNO2').innerHTML = dane1.values[x].value;
 			    	document.getElementById('stationNO2Date').innerHTML = dane1.values[x].date;
-			    	norm3NO2Now=(dane1.values[x].value / normaNO2)*100;
+			    	norm3NO2Now = ((dane1.values[x].value / normaNO2)*100).toFixed(2);
 			    	document.getElementById('stationNO2Norm').innerHTML = norm3NO2Now;
 			    	break;
 			    }
@@ -300,7 +300,7 @@ function station4dane(){
 			    if (dane1.values[x].value != null) {
 			    	document.getElementById('stationCO').innerHTML = dane1.values[x].value;
 			    	document.getElementById('stationCODate').innerHTML = dane1.values[x].date;
-			    	normCONow=(dane1.values[x].value / normaCO)*100;
+			    	normCONow = ((dane1.values[x].value / normaCO)*100).toFixed(2);
 			    	document.getElementById('stationCONorm').innerHTML = normCONow;
 			    	break;
 			    }
@@ -314,7 +314,7 @@ function station4dane(){
 			    if (dane1.values[x].value != null) {
 			    	document.getElementById('stationBenzen').innerHTML = dane1.values[x].value;
 			    	document.getElementById('stationBenzenDate').innerHTML = dane1.values[x].date;
-			    	normBenzenNow=(dane1.values[x].value / normaBenzen)*100;
+			    	normBenzenNow = ((dane1.values[x].value / normaBenzen)*100).toFixed(2);
 			    	document.getElementById('stationBenzenNorm').innerHTML = normBenzenNow;
 			    	break;
 			    }
@@ -328,7 +328,7 @@ function station4dane(){
 			    if (dane1.values[x].value != null) {
 			    	document.getElementById('stationPM25').innerHTML = dane1.values[x].value;
 			    	document.getElementById('stationPM25Date').innerHTML = dane1.values[x].date;
-			    	normPM25Now=(dane1.values[x].value / normaPM25)*100;
+			    	normPM25Now = ((dane1.values[x].value / normaPM25)*100).toFixed(2);
 			    	document.getElementById('stationPM25Norm').innerHTML = normPM25Now;
 			    	break;
 			    }
@@ -342,7 +342,7 @@ function station4dane(){
 			    if (dane1.values[x].value != null) {
 			    	document.getElementById('stationSO2').innerHTML = dane1.values[x].value;
 			    	document.getElementById('stationSO2Date').innerHTML = dane1.values[x].date;
-			    	normSO2Now=(dane1.values[x].value / normaSO2)*100;
+			    	normSO2Now = ((dane1.values[x].value / normaSO2)*100).toFixed(2);
 			    	document.getElementById('stationSO2Norm').innerHTML = normSO2Now;
 			    	break;
 			    }
@@ -360,7 +360,6 @@ function station4dane(){
 			})
 	document.getElementById('stationNameH').innerHTML = station4NameH;
 	document.getElementById('stationNameHP').innerHTML = station4NameH;
-	document.getElementById('messageTxt').value = "Stan powietrza na stacji " + station4NameH + " jest " + station4StanH + ". Stężenie pyłu PM10 wynosi " + station4PM10Norm + "%";
 }
 
 // ładowanie danych ze stacji 5 Kraków, os. Wadów
@@ -372,9 +371,10 @@ function station5dane(){
 			    if (dane1.values[x].value != null) {
 			    	document.getElementById('stationPM10').innerHTML = dane1.values[x].value;
 			    	document.getElementById('stationPM10Date').innerHTML = dane1.values[x].date;
-			    	normPM10Now=(dane1.values[x].value / normaPM10)*100;
+			    	normPM10Now = ((dane1.values[x].value / normaPM10)*100).toFixed(2);
 			    	document.getElementById('stationPM10Norm').innerHTML = normPM10Now;
-			    	station5PM10Norm = normPM10Now;
+			    	localStorage.setItem("normPM10Now", normPM10Now);
+					document.getElementById('messageTxt').value = "Stan powietrza na stacji " + station5NameH + " jest " + station5StanH + ". Stężenie pyłu PM10 wynosi " + localStorage.getItem("normPM10Now") + "%";
 			    	break;
 			    }
 			}
@@ -385,7 +385,6 @@ function station5dane(){
 			})
 	document.getElementById('stationNameH').innerHTML = station5NameH;
 	document.getElementById('stationNameHP').innerHTML = station5NameH;
-	document.getElementById('messageTxt').value = "Stan powietrza na stacji " + station5NameH + " jest " + station5StanH + ". Stężenie pyłu PM10 wynosi " + station5PM10Norm + "%";
 }
 
 
@@ -399,9 +398,10 @@ function station6dane(){
 			    if (dane1.values[x].value != null) {
 			    	document.getElementById('stationPM10').innerHTML = dane1.values[x].value;
 			    	document.getElementById('stationPM10Date').innerHTML = dane1.values[x].date;
-			    	normPM10Now=(dane1.values[x].value / normaPM10)*100;
+			    	normPM10Now = ((dane1.values[x].value / normaPM10)*100).toFixed(2);
 			    	document.getElementById('stationPM10Norm').innerHTML = normPM10Now;
-			    	station6PM10Norm = normPM10Now;
+			    	localStorage.setItem("normPM10Now", normPM10Now);
+					document.getElementById('messageTxt').value = "Stan powietrza na stacji " + station6NameH + " jest " + station6StanH + ". Stężenie pyłu PM10 wynosi " + localStorage.getItem("normPM10Now") + "%";	
 			    	break;
 			    }
 			}
@@ -413,7 +413,6 @@ function station6dane(){
 			})
 	document.getElementById('stationNameH').innerHTML = station6NameH;
 	document.getElementById('stationNameHP').innerHTML = station6NameH;
-	document.getElementById('messageTxt').value = "Stan powietrza na stacji " + station6NameH + " jest " + station6StanH + ". Stężenie pyłu PM10 wynosi " + station6PM10Norm + "%";
 }
 
 // ładowanie danych ze stacji 7 Kraków, ul. Bujaka
@@ -426,9 +425,10 @@ function station7dane(){
 			    if (dane1.values[x].value != null) {
 			    	document.getElementById('stationPM10').innerHTML = dane1.values[x].value;
 			    	document.getElementById('stationPM10Date').innerHTML = dane1.values[x].date;
-			    	normPM10Now=(dane1.values[x].value / normaPM10)*100;
+			    	normPM10Now = ((dane1.values[x].value / normaPM10)*100).toFixed(2);
 			    	document.getElementById('stationPM10Norm').innerHTML = normPM10Now;
-			    	station7PM10Norm = normPM10Now;
+			    	localStorage.setItem("normPM10Now", normPM10Now);
+					document.getElementById('messageTxt').value = "Stan powietrza na stacji " + station7NameH + " jest " + station7StanH + ". Stężenie pyłu PM10 wynosi " + localStorage.getItem("normPM10Now") + "%";	
 			    	break;
 			    }
 			}
@@ -441,7 +441,7 @@ function station7dane(){
 			    if (dane1.values[x].value != null) {
 			    	document.getElementById('stationNO2').innerHTML = dane1.values[x].value;
 			    	document.getElementById('stationNO2Date').innerHTML = dane1.values[x].date;
-			    	norm3NO2Now=(dane1.values[x].value / normaNO2)*100;
+			    	norm3NO2Now = ((dane1.values[x].value / normaNO2)*100).toFixed(2);
 			    	document.getElementById('stationNO2Norm').innerHTML = norm3NO2Now;
 			    	break;
 			    }
@@ -455,7 +455,7 @@ function station7dane(){
 			    if (dane1.values[x].value != null) {
 			    	document.getElementById('stationO3').innerHTML = dane1.values[x].value;
 			    	document.getElementById('stationO3Date').innerHTML = dane1.values[x].date;
-			    	normO3Now=(dane1.values[x].value / normaO3)*100;
+			    	normO3Now = ((dane1.values[x].value / normaO3)*100).toFixed(2);
 			    	document.getElementById('stationO3Norm').innerHTML = normO3Now;
 			    	break;
 			    }
@@ -469,7 +469,7 @@ function station7dane(){
 			    if (dane1.values[x].value != null) {
 			    	document.getElementById('stationPM25').innerHTML = dane1.values[x].value;
 			    	document.getElementById('stationPM25Date').innerHTML = dane1.values[x].date;
-			    	normPM25Now=(dane1.values[x].value / normaPM25)*100;
+			    	normPM25Now = ((dane1.values[x].value / normaPM25)*100).toFixed(2);
 			    	document.getElementById('stationPM25Norm').innerHTML = normPM25Now;
 			    	break;
 			    }
@@ -483,7 +483,7 @@ function station7dane(){
 			    if (dane1.values[x].value != null) {
 			    	document.getElementById('stationSO2').innerHTML = dane1.values[x].value;
 			    	document.getElementById('stationSO2Date').innerHTML = dane1.values[x].date;
-			    	normSO2Now=(dane1.values[x].value / normaSO2)*100;
+			    	normSO2Now = ((dane1.values[x].value / normaSO2)*100).toFixed(2);
 			    	document.getElementById('stationSO2Norm').innerHTML = normSO2Now;
 			    	break;
 			    }
@@ -500,7 +500,6 @@ function station7dane(){
 			})
 	document.getElementById('stationNameH').innerHTML = station7NameH;
 	document.getElementById('stationNameHP').innerHTML = station7NameH;
-	document.getElementById('messageTxt').value = "Stan powietrza na stacji " + station7NameH + " jest " + station7StanH + ". Stężenie pyłu PM10 wynosi " + station7PM10Norm + "%";
 }
 
 // ładowanie danych ze stacji 8 Kraków, ul. Telimeny
@@ -512,9 +511,10 @@ function station8dane(){
 			    if (dane1.values[x].value != null) {
 			    	document.getElementById('stationPM10').innerHTML = dane1.values[x].value;
 			    	document.getElementById('stationPM10Date').innerHTML = dane1.values[x].date;
-			    	normPM10Now=(dane1.values[x].value / normaPM10)*100;
+			    	normPM10Now = ((dane1.values[x].value / normaPM10)*100).toFixed(2);
 			    	document.getElementById('stationPM10Norm').innerHTML = normPM10Now;
-			    	station8PM10Norm = normPM10Now;
+			    	localStorage.setItem("normPM10Now", normPM10Now);
+					document.getElementById('messageTxt').value = "Stan powietrza na stacji " + station8NameH + " jest " + station8StanH  + ". Stężenie pyłu PM10 wynosi " + localStorage.getItem("normPM10Now") + "%";	
 			    	break;
 			    }
 			}
@@ -525,7 +525,6 @@ function station8dane(){
 			})
 	document.getElementById('stationNameH').innerHTML = station8NameH;
 	document.getElementById('stationNameHP').innerHTML = station8NameH;
-	document.getElementById('messageTxt').value = "Stan powietrza na stacji " + station8NameH + " jest " + station8StanH  + ". Stężenie pyłu PM10 wynosi " + station8PM10Norm + "%";
 }
 
 // funkcja do sprawdzania czy jest darmowe mpk
@@ -535,7 +534,7 @@ function mpkFree(){
 	function leadingZero(i) {
        	return (i < 10)? '0'+i : i;
     }
-	var wczoraj23 =currentDate.getFullYear() + "-"+ leadingZero((currentDate.getMonth()+1)) + "-"  + leadingZero((currentDate.getDate() - 1)) + " " +"11:00:00";
+	var wczoraj23 =currentDate.getFullYear() + "-"+ leadingZero(currentDate.getMonth()+1) + "-"  + leadingZero(currentDate.getDate() - 1) + " " +"11:00:00";
 	var wczoraj23String=wczoraj23.toString();
 	var srednia2Sum = 0;
 	var srednia1Sum = 0;
@@ -573,18 +572,17 @@ function mpkFree(){
 		//document.getElementById('q5').innerHTML = srednia1Sum;
 		srednia2Sum += sr2;
 		//document.getElementById('q6').innerHTML = srednia2Sum;
-		var srednia1Final = srednia1Sum / 8;
-		var srednia2Final = srednia2Sum / 8;
+		var srednia1Final = (srednia1Sum / 8).toFixed(2);
+		var srednia2Final = (srednia2Sum / 8).toFixed(2);
 		//document.getElementById('q7').innerHTML = srednia1Final;
 		//document.getElementById('q8').innerHTML = srednia2Final;
 		if (srednia1Final >= 150 || srednia2Final >= 150) {
 			document.getElementById('informacjaMPK').innerHTML = "Z powodu wysokiego zanieczyszczenia powietrza jakie miało miejsce w dniu wczorajszym, w dniu dzisiejszym obowiązuje darmowa komunikacja miejska na terenie całego miasta Krakowa za okazaniem dowodu rejestracyjnego";
 		} else {
 			document.getElementById('informacjaMPK').innerHTML = "Brak podstaw do ogłoszenia darmowej komunikacji miejskiej";
-			document.getElementById('srednia1Jest').innerHTML = "Średnia 1: " + srednia1Final;
-			document.getElementById('srednia2Jest').innerHTML = "Średnia 2: " + srednia2Final;
-			document.getElementById('messageTxt').value = document.getElementById('informacjaMPK').innerHTML;
-
 		}
+		document.getElementById('srednia1Jest').innerHTML = "Średnia 1: " + srednia1Final;
+		document.getElementById('srednia2Jest').innerHTML = "Średnia 2: " + srednia2Final;
+		document.getElementById('messageTxt').value = document.getElementById('informacjaMPK').innerHTML;
 	}
 }

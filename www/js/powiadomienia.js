@@ -6,38 +6,45 @@
 
 function checkRadio() {
 	if(document.getElementById('1godzina').checked) {
-  		var interwal = "hour";
+  		var interwal = 60*60*1000;
   		return interwal;
 	}else if(document.getElementById('24godziny').checked) {
-	  	var interwal = "day";
+	  	var interwal = 24*60*60*1000;
 	  	return interwal;
 	}else if(document.getElementById('1minuta').checked) {
-		var interwal = "minute";
+		var interwal = 60*1000;
 		return interwal;	
 	}
 }
 function checkSlider(){
-	var asd = document.getElementById('slider2').options[document.getElementById('slider2').selectedIndex].value
-	return asd;
+	var pozw = document.getElementById('slider2').options[document.getElementById('slider2').selectedIndex].value
+	return pozw;
 }
 
 function checkStation(){
-	var asd = document.getElementById('stationChoice').options[document.getElementById('stationChoice').selectedIndex].value;
-	var qwerty = document.getElementById('stationChoice').options[document.getElementById('stationChoice').selectedIndex].innerHTML;
-	localStorage.setItem("nazwaStacji", qwerty);
-	return asd;
+	var nazwaWybranejStacji = document.getElementById('stationChoice').options[document.getElementById('stationChoice').selectedIndex].value;
+	var kodWybranejStacji = document.getElementById('stationChoice').options[document.getElementById('stationChoice').selectedIndex].innerHTML;
+	localStorage.setItem("nazwaStacji", kodWybranejStacji);
+	return nazwaWybranejStacji;
 }
 
+function checkState(){
+	var wybranyStan = document.getElementById('stateChoice').options[document.getElementById('stateChoice').selectedIndex].value;
+	localStorage.setItem("wybranyStan", wybranyStan);
+	return wybranyStan;
+}
 
 function ustawPowiadomienie(){
-	interwal = checkRadio();
-	pozwolenie = checkSlider();
-	stacja= checkStation();
+	var interwal = checkRadio();
+	var pozwolenie = checkSlider();
+	var stacja = checkStation();
 	localStorage.setItem("stacja", stacja);
 	localStorage.setItem("pozwolenie", pozwolenie);
 	localStorage.setItem("interwal", interwal);
 	if (localStorage.getItem("pozwolenie") == "on") {
-		powiadomienia()
+		var timer = setInterval(function () {	
+			wykonajPomiar()
+		}, localStorage.getItem("interwal"));
 	}
 	else{
 		powiadomieniaBrak()
@@ -46,24 +53,53 @@ function ustawPowiadomienie(){
 
 function wykonajPomiar(){
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/"+localStorage.getItem("stacja"), function( stan3 ) {
-				pomiarPowiadomienie = stan3.stIndexLevel.indexLevelName;
-				localStorage.setItem("pomiar", pomiarPowiadomienie);			
-			});
-	return localStorage.getItem("pomiar");
+		pomiarPowiadomienie = stan3.stIndexLevel.indexLevelName;
+		switch (checkState()) {
+		case "Bardzo dobry":
+			powiadomienia(pomiarPowiadomienie);
+			console.log(pomiarPowiadomienie);
+			break;
+		case "Dobry":
+			if (pomiarPowiadomienie === "Dobry" || pomiarPowiadomienie === "Umiarkowany" || pomiarPowiadomienie === "Dostateczny" || pomiarPowiadomienie === "Zły" || pomiarPowiadomienie === "Bardzo zły") {
+				powiadomienia(pomiarPowiadomienie);
+				console.log(pomiarPowiadomienie);
+			}
+			break;
+		case "Umiarkowany":
+			if (pomiarPowiadomienie === "Umiarkowany" || pomiarPowiadomienie === "Dostateczny" || pomiarPowiadomienie === "Zły" || pomiarPowiadomienie === "Bardzo zły") {
+				powiadomienia(pomiarPowiadomienie);
+				console.log(pomiarPowiadomienie);
+			}
+			break;
+		case "Dostateczny":
+			if (pomiarPowiadomienie === "Dostateczny" || pomiarPowiadomienie === "Zły" || pomiarPowiadomienie === "Bardzo zły") {
+				powiadomienia(pomiarPowiadomienie);
+				console.log(pomiarPowiadomienie);
+			}
+			break;
+			case "Zły":
+			if (pomiarPowiadomienie === "Zły" || pomiarPowiadomienie === "Bardzo zły") {
+				powiadomienia(pomiarPowiadomienie);
+				console.log(pomiarPowiadomienie);
+			}
+			break;
+		case "Bardzo zły":
+			if (pomiarPowiadomienie === "Bardzo zły") {
+				powiadomienia(pomiarPowiadomienie);
+				console.log(pomiarPowiadomienie);
+			}
+		}
+	});
 }
 
-
-
-
-function powiadomienia(){
+function powiadomienia(pomiarPowiadomienieData){
 	cordova.plugins.notification.local.schedule({
 	  id: 1,
 	  title: localStorage.getItem("nazwaStacji"),
-	  text: 'Stan powietrza:' + wykonajPomiar(),
-	  sound: null,
-	  every: localStorage.getItem("interwal"), //, "hour", "week", "month", "year"
+	  text: 'Stan powietrza: ' + pomiarPowiadomienieData,
+	  //sound: null,
 	  autoClear: false,
-	  at: new Date(new Date().getTime() + 10*1000)
+	  //at: new Date(new Date().getTime() + 10*1000)
 	});
 }
 
