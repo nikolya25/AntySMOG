@@ -8,3 +8,4 @@ Aplikacja pobiera dane korzystając z Interfejsu API portalu "Jakość Powietrza
 Aplikacja AntySMOG została stworzona z wykorzystaniem narzędzia PhoneGap. Aby zainstalować aplikację należy zarejestrować się na stronie https://build.phonegap.com/apps Po zalogowaniu na swoje konto należy przejść do zakładki "Apps" i kliknąć przycisk "+ new app". W polu tekstowym, które się pojawi należy wkleić link do tego repozytorium a następnie kliknąć przycisk: "Pull from git repository". Kiedy nowo dodana aplikacja pojawi się na liście należy kliknąć "Redy to build". Aplikację można pobrać na telefon korzystając ze skanera kodów Qr. 
 ## Autorzy 
 Piotr Siekierski KrDUIs1012
+Nikolya Shchur KrDUIs1012
