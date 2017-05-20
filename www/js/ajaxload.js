@@ -587,7 +587,7 @@ function mpkFree(){
 		} else {
 			document.getElementById('wsms').innerHTML = "Brak podstaw do ogłoszenia darmowej komunikacji miejskiej";
 		}
-		document.getElementById('srednieSa').innerHTML = "Należy pamiętać że ostateczną decyzję o ogłoszeniu darmowej komunikacji miejskiej w czasie SMOGU podejmują władze miasta Krakowa więc wskazań aplikacji w tym zakresie nie należy traktować wiążąco.";
+		document.getElementById('srednieSa').innerHTML = "Na podstawie danych pomiarowych z dnia wczorajszego";
 		document.getElementById('messageTxt').value = document.getElementById('wsms').innerHTML;
 	}
 }
