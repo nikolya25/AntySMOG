@@ -531,14 +531,29 @@ function station8dane(){
 
 function mpkFree(){
 	var currentDate = new Date();
+	var wczoraj23;
 	function leadingZero(i) {
-       	return (i < 10)? '0'+i : i;
+       	return (i < 10)? '0' + i : i;
     }
-	var wczoraj23 =currentDate.getFullYear() + "-"+ leadingZero(currentDate.getMonth()+1) + "-"  + leadingZero(currentDate.getDate() - 1) + " " +"11:00:00";
-	var wczoraj23String=wczoraj23.toString();
+	if (currentDate.getDate() === 1) {
+    	if (currentDate.getMonth() === 4 || currentDate.getMonth() === 6 || currentDate.getMonth() === 9 || currentDate.getMonth() === 11) {
+			wczoraj23 = currentDate.getFullYear() + "-" + leadingZero(currentDate.getMonth()) + "-"  + leadingZero(currentDate.getDate() + 29) + " " + "11:00:00";
+		} else if (currentDate.getMonth() === 1 || currentDate.getMonth() === 3 || currentDate.getMonth() === 5 || currentDate.getMonth() === 7 || currentDate.getMonth() === 8  || currentDate.getMonth() === 10) {
+		    wczoraj23 = currentDate.getFullYear() + "-" + leadingZero(currentDate.getMonth()) + "-"  + leadingZero(currentDate.getDate() + 30) + " " + "11:00:00";
+		} else if (currentDate.getMonth() === 0) {
+		    wczoraj23 = currentDate.getFullYear() - 1 + "-" + leadingZero(currentDate.getMonth() + 12) + "-"  + leadingZero(currentDate.getDate() + 30) + " " + "11:00:00";
+		} else if (currentDate.getMonth() === 2 && currentDate.getFullYear() % 4 === 0) {
+		    wczoraj23 = currentDate.getFullYear() + "-" + leadingZero(currentDate.getMonth()) + "-"  + leadingZero(currentDate.getDate() + 28) + " " + "11:00:00";
+		} else if (currentDate.getMonth() === 2 && currentDate.getFullYear() % 4 !== 0) {
+		    wczoraj23 = currentDate.getFullYear() + "-" + leadingZero(currentDate.getMonth()) + "-"  + leadingZero(currentDate.getDate() + 27) + " " + "11:00:00";
+		}
+	} else {
+		wczoraj23 = currentDate.getFullYear() + "-" + leadingZero(currentDate.getMonth() + 1) + "-"  + leadingZero(currentDate.getDate() - 1) + " " + "11:00:00";
+	}
+	var wczoraj23String = wczoraj23.toString();
 	var srednia2Sum = 0;
 	var srednia1Sum = 0;
-	var idTab=['16786','16377','2750','2792','17309','16784','2770','17243'];
+	var idTab = ['16786','16377','2750','2792','17309','16784','2770','17243'];
 
 	for (var z = 0; z < 8; z++) {
 		$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/data/getData/"+idTab[z], function( dane1 ) {
@@ -548,19 +563,14 @@ function mpkFree(){
 			var srednia2 = 0;
 			for (var x = 0; x < 30; x++) {
 				if (dane1.values[x].date.toString() == wczoraj23String) {
-					document.getElementById('data9').innerHTML = dane1.values[x].date;
 					for (var y = 0; y < 12; y++) {
 						suma1 = suma1 + dane1.values[x + y].value;
-						//document.getElementById('q1').innerHTML = suma1;
 					}
 					srednia1 = suma1 / 12;
-					//document.getElementById('q2').innerHTML = srednia1;
 					for (var j = 7; j < 24; j++) {
 						suma2 = suma2 + dane1.values[x + j].value;
-						document.getElementById('q3').innerHTML = suma2;
 					}
 					srednia2 = suma2 / 16;
-					//document.getElementById('q4').innerHTML = srednia2;
 				}	
 			}
 			srForMPK(srednia1, srednia2);
@@ -569,20 +579,16 @@ function mpkFree(){
 	
 	function srForMPK (sr1, sr2) {
 		srednia1Sum += sr1;
-		//document.getElementById('q5').innerHTML = srednia1Sum;
 		srednia2Sum += sr2;
-		//document.getElementById('q6').innerHTML = srednia2Sum;
 		var srednia1Final = (srednia1Sum / 8).toFixed(2);
 		var srednia2Final = (srednia2Sum / 8).toFixed(2);
-		//document.getElementById('q7').innerHTML = srednia1Final;
-		//document.getElementById('q8').innerHTML = srednia2Final;
 		if (srednia1Final >= 150 || srednia2Final >= 150) {
-			document.getElementById('informacjaMPK').innerHTML = "Z powodu wysokiego zanieczyszczenia powietrza jakie miało miejsce w dniu wczorajszym, w dniu dzisiejszym obowiązuje darmowa komunikacja miejska na terenie całego miasta Krakowa za okazaniem dowodu rejestracyjnego";
+			document.getElementById('wsms').innerHTML = "Z powodu wysokiego zanieczyszczenia powietrza jakie miało miejsce w dniu wczorajszym, w dniu dzisiejszym obowiązuje darmowa komunikacja miejska na terenie całego miasta Krakowa za okazaniem dowodu rejestracyjnego";
 		} else {
-			document.getElementById('informacjaMPK').innerHTML = "Brak podstaw do ogłoszenia darmowej komunikacji miejskiej";
+			document.getElementById('wsms').innerHTML = "Brak podstaw do ogłoszenia darmowej komunikacji miejskiej";
 		}
-		document.getElementById('srednia1Jest').innerHTML = "Średnia 1: " + srednia1Final;
-		document.getElementById('srednia2Jest').innerHTML = "Średnia 2: " + srednia2Final;
-		document.getElementById('messageTxt').value = document.getElementById('informacjaMPK').innerHTML;
+		document.getElementById('data9').innerHTML = "W dniu dzisiejszym tzn. " + currentDate.getFullYear() + "-" + leadingZero(currentDate.getMonth() + 1) + "-"  + leadingZero(currentDate.getDate()) + " MPK S.A. w Krakowie informuje:";
+		document.getElementById('srednieSa').innerHTML = "Podstawą tego są dane pomiarowe jakości powietrza otrzymane: " + wczoraj23 + ", kiedy, średnie pomiarów na wszystkich stacjach wynosiły " + srednia1Final + " i " + srednia2Final;
+		document.getElementById('messageTxt').value = document.getElementById('wsms').innerHTML;
 	}
 }
