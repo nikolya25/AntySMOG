@@ -1,8 +1,8 @@
 # AntySMOG
 AntySmog to aplikacja do informowania o stanie, jakości powietrza na terenie Krakowa.
-<div>
+
 <center><img src="https://image.freepik.com/free-icon/factory-towers-spreading-smoke_318-62320.jpg" alt="Ikona programu" width="300" height="300" /></center>
-</div>
+
 
 ## Opis Aplikacji
 Coraz więcej osób zwraca uwagę, na jakość powietrza, którym oddycha. Problem smogu jest szczególnie widoczny w Krakowie, coraz większa liczba mieszkańców tego miasta codziennie sprawdza stężenie niebezpiecznych związków w atmosferze. Wychodząc na przeciw ich potrzebom stworzyliśmy aplikację AntySMOG. AntySmog jest bardzo prostym w obsłudze i intuicyjnym narzędziem, umożliwiającym łatwy dostęp do informacji na temat zanieczyszczenia powietrza na terenie Krakowa. Aplikacja pozwala zarówno na szybkie sprawdzenie indexu jakości powietrza jak i na zapoznanie się ze szczegółowymi danymi na temat stężenia niebezpiecznych substancji w powietrzu. Użytkownik zyskuje dostęp do lokalizacji stacji pomiarowych oraz wskazań przez nie udostępnianych. Dzięki funkcji powiadomień SMS w łatwy sposób można ostrzec swoich znajomych o SMOGU lub poinformować ich, że mogą skorzystać z darmowej komunikacji miejskiej. Aplikacja pozwala również na wyświetlanie spersonalizowanych powiadomień.
