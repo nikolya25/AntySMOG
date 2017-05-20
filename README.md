@@ -1,7 +1,7 @@
 # AntySMOG
 AntySmog to aplikacja do informowania o stanie, jakości powietrza na terenie Krakowa.
 
-<center><img src="https://image.freepik.com/free-icon/factory-towers-spreading-smoke_318-62320.jpg" alt="Ikona programu" width="300" height="300" /></center>
+<img src="https://image.freepik.com/free-icon/factory-towers-spreading-smoke_318-62320.jpg" alt="Ikona programu" width="300" height="300" style="margin:auto;" />
 
 
 ## Opis Aplikacji
