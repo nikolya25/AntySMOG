@@ -587,8 +587,7 @@ function mpkFree(){
 		} else {
 			document.getElementById('wsms').innerHTML = "Brak podstaw do ogłoszenia darmowej komunikacji miejskiej";
 		}
-		document.getElementById('data9').innerHTML = "W dniu dzisiejszym tzn. " + currentDate.getFullYear() + "-" + leadingZero(currentDate.getMonth() + 1) + "-"  + leadingZero(currentDate.getDate()) + " MPK S.A. w Krakowie informuje:";
-		document.getElementById('srednieSa').innerHTML = "Podstawą tego są dane pomiarowe jakości powietrza otrzymane: " + wczoraj23 + ", kiedy, średnie pomiarów na wszystkich stacjach wynosiły " + srednia1Final + " i " + srednia2Final;
+		document.getElementById('srednieSa').innerHTML = "Należy pamiętać że ostateczną decyzję o ogłoszeniu darmowej komunikacji miejskiej w czasie SMOGU podejmują władze miasta Krakowa więc wskazań aplikacji w tym zakresie nie należy traktować wiążąco.";
 		document.getElementById('messageTxt').value = document.getElementById('wsms').innerHTML;
 	}
 }
