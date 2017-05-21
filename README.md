@@ -10,6 +10,10 @@ Coraz więcej osób zwraca uwagę, na jakość powietrza, którym oddycha. Probl
 Aplikacja pobiera dane korzystając z Interfejsu API portalu "Jakość Powietrza" udostępnionego przez Główny Inspektorat Ochrony Środowiska pod adresem http://powietrze.gios.gov.pl/pjp/content/api
 ## Instalacja Aplikacji
 Aplikacja AntySMOG została stworzona z wykorzystaniem narzędzia PhoneGap. Aby zainstalować aplikację należy zarejestrować się na stronie https://build.phonegap.com/apps Po zalogowaniu na swoje konto należy przejść do zakładki "Apps" i kliknąć przycisk "+ new app". W polu tekstowym, które się pojawi należy wkleić link do tego repozytorium a następnie kliknąć przycisk: "Pull from git repository". Kiedy nowo dodana aplikacja pojawi się na liście należy kliknąć "Redy to build". Aplikację można pobrać na telefon korzystając ze skanera kodów Qr. 
+### Wiki
+Wiki dostępne pod adresem: https://github.com/nikolya25/AntySMOG/wiki
+### Repozytorium
+Repozytorium dostępne pod adresem: https://github.com/nikolya25/AntySMOG
 ## Autorzy 
 Piotr Siekierski KrDUIs1012
 Nikolya Shchur KrDUIs1012
