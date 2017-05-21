@@ -54,6 +54,7 @@ function ustawPowiadomienie(){
 function wykonajPomiar(){
 	$.getJSON( "http://api.gios.gov.pl/pjp-api/rest/aqindex/getIndex/"+localStorage.getItem("stacja"), function( stan3 ) {
 		pomiarPowiadomienie = stan3.stIndexLevel.indexLevelName;
+		if (localStorage.getItem("pozwolenie") == "on") {
 		switch (checkState()) {
 		case "Bardzo dobry":
 			powiadomienia(pomiarPowiadomienie);
@@ -88,6 +89,7 @@ function wykonajPomiar(){
 				powiadomienia(pomiarPowiadomienie);
 				console.log(pomiarPowiadomienie);
 			}
+		}
 		}
 	});
 }
